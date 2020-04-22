@@ -1,0 +1,391 @@
+﻿@page
+@model Web.ButtonGroupModel
+@{
+    var sizes = Enum.GetValues(typeof(Size));
+
+    var states = Enum.GetValues(typeof(State));
+}
+
+<div class="row">
+
+    <div class="col-lg-6">
+
+        <portlet title="Button Group">
+
+            <section>
+
+                <button-group>
+
+                    <button text="Add" />
+                    <button text="Add" />
+                    <button text="Add" />
+
+                </button-group>
+
+                <button-group>
+
+                    <button text="Add" state="Success" />
+                    <button text="Add" state="Warning" />
+                    <button text="Add" state="Danger" />
+
+                </button-group>
+
+            </section>
+
+
+            @foreach (var size in sizes)
+            {
+
+                <section>
+
+                    <button-group size="@(Size)size">
+
+                        <button text="@size" />
+                        <button text="@size" />
+                        <button text="@size" />
+
+                    </button-group>
+
+                    <button-group size="@(Size)size">
+
+                        <button text="@size" state="Success" />
+                        <button text="@size" state="Warning" />
+                        <button text="@size" state="Danger" />
+
+                    </button-group>
+
+                </section>
+
+            }
+
+
+        </portlet>
+
+        <portlet title="Nesting">
+
+            <section>
+
+                <button-group>
+
+                    <button-dropdown text="This's a Dropdown">
+
+                        <button text="dropdown button" />
+                        <button text="dropdown button" />
+                        <button text="dropdown button" />
+
+                    </button-dropdown>
+
+                    <button text="Add" state="Success" />
+                    <button text="Add" state="Warning" />
+                    <button text="Add" state="Danger" />
+
+                    <button-dropdown>
+
+                        <button text="dropdown button" state="Success" />
+                        <button text="dropdown button" state="Warning" />
+                        <button text="dropdown button" state="Danger" />
+
+                    </button-dropdown>
+
+                </button-group>
+
+            </section>
+
+        </portlet>
+
+        <portlet title="Vertical">
+
+            <section>
+
+                <button-group is-vertical="true">
+
+                    <button-dropdown text="This's a Dropdown">
+
+                        <button text="dropdown button" />
+                        <button text="dropdown button" />
+                        <button text="dropdown button" />
+
+                    </button-dropdown>
+
+                    <button text="Add" state="Success" />
+                    <button text="Add" state="Warning" />
+                    <button text="Add" state="Danger" />
+
+                    <button-dropdown>
+
+                        <button text="dropdown button" state="Success" />
+                        <button text="dropdown button" state="Warning" />
+                        <button text="dropdown button" state="Danger" />
+
+                    </button-dropdown>
+
+                </button-group>
+
+            </section>
+
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <portlet title="Button Toolbar">
+             <button-toolbar></button-toolbar>
+            <section>
+
+                <button-toolbar>
+
+                    <button-group>
+
+                        <button text="Add" state="Success" />
+                        <button text="Add" state="Warning" />
+                        <button text="Add" state="Danger" />
+
+                    </button-group>
+
+                    <button-group>
+
+                        <button state="Success" icon="File" is-only-icon="true" />
+                        <button state="Warning" icon="FileAudio" is-only-icon="true" />
+                        <button state="Danger" icon="FileArchive" is-only-icon="true" />
+
+                    </button-group>
+
+                </button-toolbar>
+
+            </section>
+
+            <section>
+
+                <button-toolbar>
+
+                    <button-group>
+
+                        <button state="Success" icon="FileContract" is-only-icon="true" />
+                        <button state="Warning" icon="GolfBall" is-only-icon="true" />
+                        <button state="Danger" icon="DiceSix" is-only-icon="true" />
+
+                    </button-group>
+
+                    <button-group>
+
+                        <button state="Success" icon="File" is-only-icon="true" />
+                        <button state="Warning" icon="FileAudio" is-only-icon="true" />
+                        <button state="Danger" icon="FileArchive" is-only-icon="true" />
+
+                    </button-group>
+
+                    <text-box prepend-text="@@" placeholder="textbox example " />
+
+                </button-toolbar>
+
+            </section>
+
+        </portlet>
+
+        <portlet title="Dropdown">
+
+            <section>
+
+                <button-dropdown>
+
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+
+                </button-dropdown>
+
+                <button-dropdown text="This's a Dropdown">
+
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+
+                </button-dropdown>
+
+                <button-dropdown text="This's a Dropdown" is-cleaned="true">
+
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+
+                </button-dropdown>
+
+            </section>
+
+            <section>
+
+                @foreach (var size in sizes)
+                {
+                    <button-dropdown button-size="@(Size)size" text="@size Dropdown" class-names="mb-2">
+
+                        <button text="dropdown button" />
+                        <button text="dropdown button" size="Lg"/>
+                        <button text="dropdown button" />
+
+                    </button-dropdown>
+                }
+
+            </section>
+
+            <section>
+
+                @foreach (var state in states)
+                {
+
+                    <button-dropdown state="@(State)state" text="@state" class-names="mb-2">
+
+                        <button text="dropdown button" />
+                        <button text="dropdown button" />
+                        <button text="dropdown button" />
+
+                        <button-dropdown-divider />
+
+                        <button text="dropdown button" />
+
+                    </button-dropdown>
+
+                }
+
+            </section>
+
+            <section>
+
+                @foreach (var state in states)
+                {
+
+                    <button-dropdown state="@(State)state" text="@state" is-outline="true" class-names="mb-2">
+
+                        <button text="dropdown button" icon="User" />
+                        <button text="dropdown button" icon="Plus" />
+                        <button text="dropdown button" icon="Minus" />
+
+                    </button-dropdown>
+
+                }
+
+            </section>
+
+        </portlet>
+
+        <portlet title="Dropdown Mode">
+
+            <section>
+
+                <button-dropdown>
+
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+
+                </button-dropdown>
+
+                <button-dropdown mode="Icon">
+
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+
+                </button-dropdown>
+
+                <button-dropdown mode="Split">
+
+                    <button text="first dropdown button" />
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+
+                </button-dropdown>
+
+            </section>
+
+            <section>
+
+                <button-dropdown state="Success">
+
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+
+                </button-dropdown>
+
+                <button-dropdown mode="Icon" state="Warning">
+
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+
+                </button-dropdown>
+
+                <button-dropdown mode="Split" state="Danger">
+
+                    <button text="first dropdown button" />
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+
+                </button-dropdown>
+
+            </section>
+
+            <section>
+
+                <button-dropdown state="Success" direction="Up">
+
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+
+                </button-dropdown>
+
+
+                <button-dropdown state="Warning" direction="Right">
+
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+
+                </button-dropdown>
+
+                <button-dropdown state="Danger" direction="Left" mode="Split">
+
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+                    <button text="dropdown button" />
+
+                </button-dropdown>
+
+            </section>
+
+            <section>
+
+                <button-dropdown state="Success" direction="Up" button-shape="Pill">
+
+                    <button text="dropdown button up" />
+                    <button text="dropdown button up" />
+                    <button text="dropdown button up" />
+
+                </button-dropdown>
+
+
+                <button-dropdown state="Warning" direction="Left" mode="Icon" button-shape="Pill">
+
+                    <button text="dropdown button left" />
+                    <button text="dropdown button left" />
+                    <button text="dropdown button left" />
+
+                </button-dropdown>
+
+                <button-dropdown state="Danger" direction="Right" mode="Split" button-shape="Square">
+
+                    <button text="first dropdown button right" />
+                    <button text="dropdown button right" />
+                    <button text="dropdown button right" />
+
+                </button-dropdown>
+
+            </section>
+
+        </portlet>
+
+    </div>
+
+</div>

@@ -1,0 +1,149 @@
+﻿@page
+@model Web.TimelineModel
+@{
+    var states = Enum.GetValues(typeof(State));
+}
+
+    <div class="row">
+
+        <div class="col-lg-12">
+            <portlet title="Timeline v1">
+                <div class="row">
+
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-10">
+
+                        <timeline version="V1">
+
+                            <timeline-item time="@DateTime.Parse("2020-2-3 10:30")">
+
+                                <h5 class="mt-3">Users Joined Today</h5>
+
+                                <media-group is-circled class-names="mt-3">
+
+                                    @for (var i = 1; i <= 6; i++)
+                                    {
+                                        <media image-url="media/users/100_@(i).jpg" />
+                                    }
+
+                                </media-group>
+
+                                <p>Lorem ipsum dolor sit amit,consectetur eiusmdd tempors labore et dolore. Lorem ipsum dolor sit amit,consectetur eiusmdd</p>
+
+
+                                <p>Lorem ipsum dolor sit amit,consectetur eiusmdd tempors labore et dolore. Lorem ipsum dolor sit amit,consectetur eiusmdd</p>
+
+                                <button-dropdown button-size="Sm" state="Danger">
+
+                                    <button text="dropdown button" />
+                                    <button text="dropdown button" />
+                                    <button text="dropdown button" />
+
+                                </button-dropdown>
+
+                            </timeline-item>
+
+                            @foreach (var state in states)
+                            {
+                                <timeline-item state="@(State)state" time="@DateTime.Parse($"2020-2-3 {(int)state}:30")" content="Lorem ipsum dolor sit amit,consectetur eiusmdd tempors labore et dolore. Lorem ipsum dolor sit amit,consectetur eiusmdd" />
+                            }
+
+                        </timeline>
+
+                    </div>
+                    <div class="col-lg-1"></div>
+
+                </div>
+            </portlet>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-6">
+
+            <portlet title="Timeline v2">
+
+                <timeline version="V2">
+
+                    <timeline-item state="Success" time="@DateTime.Parse($"2020-2-3 22:30")">
+
+                        <media-group size="Sm">
+
+                            @for (var i = 1; i <= 6; i++)
+                            {
+                                <media image-url="media/users/100_@(i).jpg" />
+                            }
+
+                        </media-group>
+
+                        <p class="mb-0 mt-2">
+                            Make Deposit <a href="#" class="kt-link kt-link--brand kt-font-bolder">USD 700</a> To ESL.
+                        </p>
+
+                    </timeline-item>
+
+                    @foreach (var state in states)
+                    {
+                        <timeline-item state="@(State)state" time="@DateTime.Parse($"2020-2-3 {(int)state}:30")" content="Lorem ipsum dolor sit amit,consectetur eiusmdd tempors labore et dolore. Lorem ipsum dolor sit amit,consectetur eiusmdd" />
+                    }
+
+                </timeline>
+
+            </portlet>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <portlet title="Timeline v3">
+
+                <timeline version="V3">
+
+                    <timeline-item state="Success" time="@DateTime.Parse($"2020-2-3 22:30")">
+
+                        <media-group size="Sm">
+
+                            @for (var i = 1; i <= 6; i++)
+                            {
+                                <media image-url="media/users/100_@(i).jpg" />
+                            }
+
+                        </media-group>
+
+                        <p class="mb-0 mt-2">
+                            Make Deposit <a href="#" class="kt-link kt-link--brand kt-font-bolder">USD 700</a> To ESL.
+                        </p>
+
+                    </timeline-item>
+
+                    @foreach (var state in states)
+                    {
+                        <timeline-item state="@(State)state" time="@DateTime.Parse($"2020-2-3 {(int)state}:30")" content="Lorem ipsum dolor sit amit,consectetur eiusmdd tempors labore et dolore. Lorem ipsum dolor sit amit,consectetur eiusmdd" />
+                    }
+
+                    <timeline-item state="Success" time="@DateTime.Parse($"2020-2-3 22:30")">
+
+                        <media-group size="Sm">
+
+                            @for (var i = 1; i <= 6; i++)
+                            {
+                                <media image-url="media/users/100_@(i).jpg" />
+                            }
+
+                        </media-group>
+
+                        <p class="mb-0 mt-2">
+                            Make Deposit <a href="#" class="kt-link kt-link--brand kt-font-bolder">USD 700</a> To ESL.
+                        </p>
+
+                    </timeline-item>
+
+                </timeline>
+
+            </portlet>
+
+        </div>
+
+    </div>

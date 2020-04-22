@@ -1,0 +1,461 @@
+﻿@page
+@model Web.MediaModel
+@{
+    var states = Enum.GetValues(typeof(State));
+
+    var sizes = Enum.GetValues(typeof(Size));
+}
+
+    <div class="row">
+
+        <div class="col-lg-6">
+
+            <portlet title="Image Examples">
+
+                <section>
+
+                    @for (var i = 1; i <= 6; i++)
+                    {
+                        <media image-url="media/users/100_@(i).jpg" />
+                    }
+
+                </section>
+
+            </portlet>
+
+            <portlet title="Placeholder Examples">
+
+                <section>
+
+                    @foreach (var state in states)
+                    {
+                        <media placeholder="@state" state="@(State)state" />
+                    }
+
+                    <media placeholder="你" state="Success" />
+
+                    <media placeholder="你好" state="Warning" />
+
+                    <media placeholder="你好呀" state="Danger" />
+
+                </section>
+
+            </portlet>
+
+            <portlet title="Sizing Options">
+
+                <section>
+
+                    @foreach (var size in sizes)
+                    {
+                        if ((int)size > 0)
+                        {
+                            <media image-url="media/users/100_@((int)size).jpg" size="@(Size)size" />
+                        }
+                    }
+
+                </section>
+
+                <section>
+
+                    @foreach (var size in sizes)
+                    {
+                        if ((int)size > 0)
+                        {
+                            <media placeholder="@size" state="@(State)size" size="@(Size)size" />
+                        }
+                    }
+
+                </section>
+
+                <section>
+
+                    @foreach (var size in sizes)
+                    {
+                        if ((int)size > 0)
+                        {
+                            <media placeholder="@size" state="@(State)size" size="@(Size)size" icon="@(Flat2Icon)size" />
+                        }
+                    }
+
+                </section>
+
+            </portlet>
+
+            <portlet title="Media Group">
+
+                <section>
+
+                    <media-group>
+
+                        @for (var i = 1; i <= 6; i++)
+                        {
+                            <media image-url="media/users/100_@(i).jpg" />
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group limit="4">
+
+                        @for (var i = 1; i <= 6; i++)
+                        {
+                            <media image-url="media/users/100_@(i).jpg" />
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group limit="4" total="100">
+
+                        @for (var i = 1; i <= 6; i++)
+                        {
+                            <media image-url="media/users/100_@(i).jpg" />
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group limit="4" total="100" size="Sm">
+
+                        @for (var i = 1; i <= 6; i++)
+                        {
+                            <media image-url="media/users/100_@(i).jpg" />
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group limit="4" total="100" size="Lg">
+
+                        @for (var i = 1; i <= 6; i++)
+                        {
+                            <media image-url="media/users/100_@(i).jpg" />
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group>
+
+                        @foreach (var state in states)
+                        {
+                            if ((int)state > 0)
+                            {
+                                <media placeholder="@state" state="@(State)state" />
+                            }
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group limit="4">
+
+                        @foreach (var state in states)
+                        {
+                            if ((int)state > 0)
+                            {
+                                <media placeholder="@state" state="@(State)state" />
+                            }
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group limit="4" total="100">
+
+                        @foreach (var state in states)
+                        {
+                            if ((int)state > 0)
+                            {
+                                <media placeholder="@state" state="@(State)state" />
+                            }
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group limit="4" total="100" size="Sm">
+
+                        @foreach (var state in states)
+                        {
+                            if ((int)state > 0)
+                            {
+                                <media placeholder="@state" state="@(State)state" />
+                            }
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group limit="4" total="100" size="Lg">
+
+                        @foreach (var state in states)
+                        {
+                            if ((int)state > 0)
+                            {
+                                <media placeholder="@state" state="@(State)state" />
+                            }
+                        }
+
+                    </media-group>
+
+                </section>
+
+            </portlet>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <portlet title="Image Examples">
+
+                <section>
+
+                    @for (var i = 1; i <= 6; i++)
+                    {
+                        <media image-url="media/users/100_@(i).jpg" is-circled />
+                    }
+
+                </section>
+
+            </portlet>
+
+            <portlet title="Placeholder Examples">
+
+                <section>
+
+                    @foreach (var state in states)
+                    {
+                        <media placeholder="@state" state="@(State)state" is-circled />
+                    }
+
+                    <media placeholder="你" state="Success" is-circled />
+
+                    <media placeholder="你好" state="Warning" is-circled />
+
+                    <media placeholder="你好呀" state="Danger" is-circled />
+
+                </section>
+
+            </portlet>
+
+            <portlet title="Sizing Options">
+
+                <section>
+
+                    @foreach (var size in sizes)
+                    {
+                        if ((int)size > 0)
+                        {
+                            <media image-url="media/users/100_@((int)size).jpg" size="@(Size)size" is-circled />
+                        }
+                    }
+
+                </section>
+
+                <section>
+
+                    @foreach (var size in sizes)
+                    {
+                        if ((int)size > 0)
+                        {
+                            <media placeholder="@size" state="@(State)size" size="@(Size)size" is-circled />
+                        }
+                    }
+
+                </section>
+
+                <section>
+
+                    @foreach (var size in sizes)
+                    {
+                        if ((int)size > 0)
+                        {
+                            <media placeholder="@size" state="@(State)size" size="@(Size)size" icon="@(Flat2Icon)size" is-circled />
+                        }
+                    }
+
+                </section>
+
+            </portlet>
+
+            <portlet title="Media Group">
+
+                <section>
+
+                    <media-group is-circled>
+
+                        @for (var i = 1; i <= 6; i++)
+                        {
+                            <media image-url="media/users/100_@(i).jpg" />
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group limit="4" is-circled>
+
+                        @for (var i = 1; i <= 6; i++)
+                        {
+                            <media image-url="media/users/100_@(i).jpg" />
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group limit="4" total="100" is-circled>
+
+                        @for (var i = 1; i <= 6; i++)
+                        {
+                            <media image-url="media/users/100_@(i).jpg" />
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group limit="4" total="100" size="Sm" is-circled>
+
+                        @for (var i = 1; i <= 6; i++)
+                        {
+                            <media image-url="media/users/100_@(i).jpg" />
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group limit="4" total="100" size="Lg" is-circled>
+
+                        @for (var i = 1; i <= 6; i++)
+                        {
+                            <media image-url="media/users/100_@(i).jpg" />
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group is-circled>
+
+                        @foreach (var state in states)
+                        {
+                            if ((int)state > 0)
+                            {
+                                <media placeholder="@state" state="@(State)state" />
+                            }
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group limit="4" is-circled>
+
+                        @foreach (var state in states)
+                        {
+                            if ((int)state > 0)
+                            {
+                                <media placeholder="@state" state="@(State)state" />
+                            }
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group limit="4" total="100" is-circled>
+
+                        @foreach (var state in states)
+                        {
+                            if ((int)state > 0)
+                            {
+                                <media placeholder="@state" state="@(State)state" />
+                            }
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group limit="4" total="100" size="Sm" is-circled>
+
+                        @foreach (var state in states)
+                        {
+                            if ((int)state > 0)
+                            {
+                                <media placeholder="@state" state="@(State)state" />
+                            }
+                        }
+
+                    </media-group>
+
+                </section>
+
+                <section>
+
+                    <media-group limit="4" total="100" size="Lg" is-circled>
+
+                        @foreach (var state in states)
+                        {
+                            if ((int)state > 0)
+                            {
+                                <media placeholder="@state" state="@(State)state" />
+                            }
+                        }
+
+                    </media-group>
+
+                </section>
+
+            </portlet>
+
+        </div>
+
+    </div>

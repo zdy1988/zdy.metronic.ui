@@ -1,0 +1,73 @@
+﻿@page
+@model AlertModel
+@{
+    var states = Enum.GetValues(typeof(State));
+}
+
+<div class="row">
+
+    <div class="col-lg-6">
+
+        <portlet title="Basic Alerts">
+
+            @foreach (var state in states)
+            {
+                <alert state="@(State)state" text="A simple @state alert—check it out!" />
+            }
+
+        </portlet>
+
+        <portlet title="Alerts Title">
+
+            @foreach (var state in states)
+            {
+                <alert state="@(State)state" text="A simple @state alert—check it out!" title="@state"/>
+            }
+
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <portlet title="Can Closed Alerts">
+
+            @foreach (var state in states)
+            {
+                <alert state="@(State)state" text="A simple @state alert—check it out!" can-closed="true" />
+            }
+
+        </portlet>
+
+        <portlet title="Alerts Icon">
+
+            @foreach (var state in states)
+            {
+                <alert state="@(State)state" text="A simple @state alert—check it out!" title="@state" icon="Warning" can-closed="true"/>
+            }
+
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-12">
+
+        <portlet title="Alerts Custom Content">
+
+            @foreach (var state in states)
+            {
+                <alert state="@(State)state" icon="Warning" can-closed="true">
+
+                    <h4 class="alert-heading">Got Issues!</h4>
+                    <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                    <hr>
+                    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+
+                </alert>
+            }
+
+        </portlet>
+
+    </div>
+
+</div>

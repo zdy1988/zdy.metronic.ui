@@ -1,0 +1,71 @@
+﻿@page
+@model Web.CalloutModel
+@{
+    var states = Enum.GetValues(typeof(State));
+}
+
+<div class="row">
+
+    <div class="col-lg-4">
+
+        <callout title="Get in Touch" content="Windows 10 automatically installs updates to make for sure" />
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <callout title="Get in Touch" content="Windows 10 automatically installs updates to make for sure">
+
+            <callout-action kind="Link" url="http://www.zdyla.com" text="Submit a Request" state="Brand" />
+
+        </callout>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <callout title="Get in Touch">
+
+            Windows 10 automatically installs updates to make for sure
+
+            <callout-action kind="Link" url="http://www.zdyla.com" text="Submit a Request" state="Brand" />
+
+        </callout>
+
+    </div>
+
+    @foreach (var state in states)
+    {
+
+        <div class="col-lg-4">
+
+            <callout title="Get in @state" state="@(State)state">
+
+                Windows 10 automatically installs updates to make for sure
+
+                <callout-action kind="Link" url="http://www.zdyla.com" text="Submit a Request" state="@(State)state" />
+
+            </callout>
+
+        </div>
+
+    }
+
+    @foreach (var state in states)
+    {
+
+        <div class="col-lg-4">
+
+            <callout title="Get in @state" state="@(State)state" is-diagonal-background="true">
+
+                Windows 10 automatically installs updates to make for sure
+
+                <callout-action kind="Link" url="http://www.zdyla.com" text="Submit a Request" state="@(State)state" />
+
+            </callout>
+
+        </div>
+
+    }
+
+</div>

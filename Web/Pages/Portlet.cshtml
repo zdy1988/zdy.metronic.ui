@@ -1,0 +1,305 @@
+﻿@page
+@model Web.PortletModel
+@{
+    var sizes = Enum.GetValues(typeof(Size));
+    var states = Enum.GetValues(typeof(State));
+}
+
+<div class="row">
+
+    <div class="col-lg-4">
+
+        <portlet icon="Graphic">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <portlet is-header-destroyed="true">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <portlet is-header-destroyed="true" body-height="300">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+        </portlet>
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    @foreach (var size in sizes)
+    {
+
+        <div class="col-lg-4">
+
+            <portlet title="Size" sub-title="@size" size="@(Size)size">
+
+                <portlet-header-action-container>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </portlet-header-action-container>
+
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+
+                <portlet-footer-action-container size="@(Size)size">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </portlet-footer-action-container>
+            </portlet>
+
+        </div>
+
+    }
+
+</div>
+
+<div class="row">
+
+    @foreach (var state in states)
+    {
+        <div class="col-lg-4">
+
+            <portlet title="Soild" sub-title="@state" solid-state="@(State)state">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+
+                <portlet-footer-action-container align="Right" size="Sm">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </portlet-footer-action-container>
+            </portlet>
+
+        </div>
+    }
+
+</div>
+
+<div class="row">
+
+    <div class="col-lg-4">
+
+        <portlet icon="Graphic">
+            <portlet-header-toolbar>
+                Toolbar
+            </portlet-header-toolbar>
+
+            <portlet-header-action-container>
+                Can't Display
+            </portlet-header-action-container>
+
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <portlet icon="Graphic" title="Detail Tools">
+            <portlet-header-toolbar />
+
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <portlet icon="Graphic" title="Custom Actions">
+            <portlet-header-toolbar>
+                <a href="#" class="btn btn-outline-brand btn-bold btn-sm">
+                    Tools
+                </a>
+                &nbsp;
+                <a href="#" class="btn btn-danger btn-sm btn-bold">
+                    Export
+                </a>
+            </portlet-header-toolbar>
+
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+        </portlet>
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-lg-4">
+
+        <portlet icon="Graphic" title="Detail Tools Skin">
+            <portlet-header-toolbar is-colored="true" is-cleaned="false"/>
+
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <portlet icon="Graphic" title="Detail Tools Skin">
+            <portlet-header-toolbar is-colored="true" is-outline="true" is-cleaned="false"/>
+
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <portlet icon="Graphic" title="Detail Tools Skin">
+            <portlet-header-toolbar is-colored="true" is-outline="true" is-pilled="true" is-cleaned="false"/>
+
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+        </portlet>
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-lg-4">
+
+        <portlet icon="Graphic" icon-state="Success" title="Bootstrap Toolbar" title-state="Danger">
+            <portlet-header-toolbar>
+                <div class="btn-group btn-group btn-group-pill" role="group" aria-label="...">
+                    <button type="button" class="btn btn-brand">Left</button>
+                    <button type="button" class="btn btn-brand">Middle</button>
+                    <button type="button" class="btn btn-brand">Right</button>
+                </div>
+            </portlet-header-toolbar>
+
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <portlet icon="Graphic" icon-state="Warning" title="Custom Title & Toolbar" title-state="Success">
+            <portlet-header-toolbar>
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    <button type="button" class="btn btn-secondary"><i class="la la-file-text-o"></i></button>
+                    <button type="button" class="btn btn-secondary"><i class="la la-floppy-o"></i></button>
+                    <button type="button" class="btn btn-secondary"><i class="la la-header"></i></button>
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" href="#">Dropdown link</a>
+                            <a class="dropdown-item" href="#">Dropdown link</a>
+                            <a class="dropdown-item" href="#">Dropdown link</a>
+                            <a class="dropdown-item" href="#">Dropdown link</a>
+                        </div>
+                    </div>
+                </div>
+            </portlet-header-toolbar>
+
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <portlet icon="Graphic" icon-state="Success" title="Dropdown Buttons" title-state="Danger">
+            <portlet-header-toolbar>
+                <div class="dropdown dropdown-inline">
+                    <a href="#" class="btn btn-default btn-pill btn-sm btn-icon btn-icon-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="flaticon2-add-1"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <ul class="kt-nav">
+                            <li class="kt-nav__item">
+                                <a href="#" class="kt-nav__link">
+                                    <i class="kt-nav__link-icon flaticon2-line-chart"></i>
+                                    <span class="kt-nav__link-text">Reports</span>
+                                </a>
+                            </li>
+                            <li class="kt-nav__item">
+                                <a href="#" class="kt-nav__link">
+                                    <i class="kt-nav__link-icon flaticon2-send"></i>
+                                    <span class="kt-nav__link-text">Messages</span>
+                                </a>
+                            </li>
+                            <li class="kt-nav__item">
+                                <a href="#" class="kt-nav__link">
+                                    <i class="kt-nav__link-icon flaticon2-pie-chart-1"></i>
+                                    <span class="kt-nav__link-text">Charts</span>
+                                </a>
+                            </li>
+                            <li class="kt-nav__item">
+                                <a href="#" class="kt-nav__link">
+                                    <i class="kt-nav__link-icon flaticon2-avatar"></i>
+                                    <span class="kt-nav__link-text">Members</span>
+                                </a>
+                            </li>
+                            <li class="kt-nav__item">
+                                <a href="#" class="kt-nav__link">
+                                    <i class="kt-nav__link-icon flaticon2-settings"></i>
+                                    <span class="kt-nav__link-text">Settings</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                &nbsp;
+                <div class="dropdown dropdown-inline">
+                    <a href="#" class="btn btn-default btn-pill btn-sm btn-icon btn-icon-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="flaticon2-soft-icons"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <ul class="kt-nav">
+                            <li class="kt-nav__section kt-nav__section--first">
+                                <span class="kt-nav__section-text">Finance</span>
+                            </li>
+                            <li class="kt-nav__item">
+                                <a href="#" class="kt-nav__link">
+                                    <i class="kt-nav__link-icon flaticon2-graph-1"></i>
+                                    <span class="kt-nav__link-text">Statistics</span>
+                                </a>
+                            </li>
+                            <li class="kt-nav__item">
+                                <a href="#" class="kt-nav__link">
+                                    <i class="kt-nav__link-icon flaticon2-calendar-4"></i>
+                                    <span class="kt-nav__link-text">Events</span>
+                                </a>
+                            </li>
+                            <li class="kt-nav__item">
+                                <a href="#" class="kt-nav__link">
+                                    <i class="kt-nav__link-icon flaticon2-layers-1"></i>
+                                    <span class="kt-nav__link-text">Reports</span>
+                                </a>
+                            </li>
+                            <li class="kt-nav__section">
+                                <span class="kt-nav__section-text">Customers</span>
+                            </li>
+                            <li class="kt-nav__item">
+                                <a href="#" class="kt-nav__link">
+                                    <i class="kt-nav__link-icon flaticon2-calendar-4"></i>
+                                    <span class="kt-nav__link-text">Notifications</span>
+                                </a>
+                            </li>
+                            <li class="kt-nav__item">
+                                <a href="#" class="kt-nav__link">
+                                    <i class="kt-nav__link-icon flaticon2-file-1"></i>
+                                    <span class="kt-nav__link-text">Files</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </portlet-header-toolbar>
+
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+        </portlet>
+
+    </div>
+
+</div>

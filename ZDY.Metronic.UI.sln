@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZDY.Metronic.UI", "ZDY.Metronic.UI\ZDY.Metronic.UI.csproj", "{7C834789-9910-4719-88D5-A53BC36B8FF1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "Web\Web.csproj", "{549458E6-085C-4C2D-ABBB-6C8FAB1158EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C834789-9910-4719-88D5-A53BC36B8FF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C834789-9910-4719-88D5-A53BC36B8FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C834789-9910-4719-88D5-A53BC36B8FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C834789-9910-4719-88D5-A53BC36B8FF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{549458E6-085C-4C2D-ABBB-6C8FAB1158EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{549458E6-085C-4C2D-ABBB-6C8FAB1158EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{549458E6-085C-4C2D-ABBB-6C8FAB1158EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{549458E6-085C-4C2D-ABBB-6C8FAB1158EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C8C9CD4-F1AF-4007-B2C2-9CB178B12845}
+	EndGlobalSection
+EndGlobal

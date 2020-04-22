@@ -1,0 +1,228 @@
+﻿@page
+@model ButtonModel
+
+@{
+    var sizes = Enum.GetValues(typeof(Size));
+    var states = Enum.GetValues(typeof(State));
+    var hovers = Enum.GetValues(typeof(ButtonHoverMode));
+    var kinds = Enum.GetValues(typeof(ButtonKind));
+    var shapes = Enum.GetValues(typeof(ButtonShape));
+    var buttonStates = Enum.GetValues(typeof(ButtonState));
+    var talls = Enum.GetValues(typeof(ButtonTall));
+    var wides = Enum.GetValues(typeof(ButtonWide));
+
+}
+
+<div class="row">
+
+    <div class="col-lg-6">
+
+        <portlet title="Basic Buttons">
+
+            <section info="Button State Color">
+
+                @foreach (var state in states)
+                {
+                    <button state="@(State)state" text="@state" />
+                }
+
+                <button is-cleaned="true">Clean</button>
+
+            </section>
+
+            <section info="Button Link">
+
+                @foreach (var state in states)
+                {
+                    <button state="@(State)state" text="@state" url="#"/>
+                }
+
+                <button is-cleaned="true" url="#">Clean</button>
+
+                <button state="Danger" kind="Link">Link Kind</button>
+
+            </section>
+
+            <section info="Button State">
+
+                @foreach (var state in states)
+                {
+                    @foreach (var buttonState in buttonStates)
+                    {
+                        <button state="@(State)state" text="@buttonState" button-state="@(ButtonState)buttonState" />
+                    }
+
+                    <br />
+                }
+
+            </section>
+
+            <section info="Button Size">
+
+                @for (var i = 0; i < sizes.Length; i++)
+                {
+                    var state = (State)states.GetValue(i);
+                    var size = (Size)sizes.GetValue(i);
+
+                    <button state="@state" text="@size" size="@size" />
+                }
+
+            </section>
+
+            <section info="Button Font Size">
+
+                @for (var i = 0; i < sizes.Length; i++)
+                {
+                    var state = (State)states.GetValue(i);
+                    var size = (Size)sizes.GetValue(i);
+
+                    <button state="@state" text="@size" font-size="@size" />
+                }
+
+            </section>
+
+            <section info="Button Wide">
+
+                @for (var i = 0; i < wides.Length; i++)
+                {
+                    var state = (State)states.GetValue(i);
+                    var wide = (ButtonWide)talls.GetValue(i);
+
+                    <button state="@state" text="@wide" wide="@wide" />
+                }
+
+            </section>
+
+            <section info="Button Tall">
+
+                @for (var i = 0; i < talls.Length; i++)
+                {
+                    var state = (State)states.GetValue(i);
+                    var tall = (ButtonTall)talls.GetValue(i);
+
+                    <button state="@state" text="@tall" tall="@tall" />
+                }
+
+            </section>
+
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <portlet title="Outline Buttons">
+
+            <section info="Default Outline Button">
+
+                @foreach (var state in states)
+                {
+                    <button state="@(State)state" text="@state" is-outline="true" />
+                }
+
+                <button is-cleaned="true" is-outline="true">Clean</button>
+
+            </section>
+
+            <section info="Button Hover Effect">
+
+                @for (var i = 0; i < hovers.Length; i++)
+                {
+                    var state = (State)states.GetValue(i);
+                    var hover = (ButtonHoverMode)hovers.GetValue(i);
+
+                    <button state="@(State)state" text="@hover" hover-mode="@(ButtonHoverMode)hover" />
+                }
+
+            </section>
+
+            <section info="Button Shape">
+
+                @for (var i = 0; i < shapes.Length; i++)
+                {
+                    var state = (State)states.GetValue(i);
+                    var shape = (ButtonShape)shapes.GetValue(i);
+
+                    <button state="@(State)state" text="@shape" shape="@shape" />
+
+                    <button state="@(State)state" text="@shape" shape="@shape" icon="Globe" />
+                }
+
+            </section>
+
+            <section info="Only Icon">
+
+                @for (var i = 0; i < shapes.Length; i++)
+                {
+                    var state = (State)states.GetValue(i);
+                    var shape = (ButtonShape)shapes.GetValue(i);
+
+                    <button state="@(State)state" text="@shape" shape="@shape" icon="Globe" is-only-icon="true" />
+                }
+
+            </section>
+
+            <section info="Only Icon size">
+
+                @for (var i = 0; i < sizes.Length; i++)
+                {
+                    var state = (State)states.GetValue(i);
+                    var size = (Size)sizes.GetValue(i);
+
+                    <button state="@(State)state" text="@size" size="@size" icon="Globe" is-only-icon="true" />
+                }
+
+                <br />
+
+                @for (var i = 0; i < sizes.Length; i++)
+                {
+                    var state = (State)states.GetValue(i);
+                    var size = (Size)sizes.GetValue(i);
+
+                    <button state="@(State)state" text="@size" icon="CloudMoon" only-icon-size="@size" is-only-icon="true" />
+                }
+
+            </section>
+
+            <section info="Label Style">
+
+                @foreach (var state in states)
+                {
+                    <button state="@(State)state" text="@state" kind="Lable" />
+                }
+
+            </section>
+
+            <section info="Pill Label Style">
+
+                @foreach (var state in states)
+                {
+                    <button state="@(State)state" text="@state" kind="Lable" shape="Pill" />
+                }
+
+            </section>
+
+            <section info="Square Label Style">
+
+                @foreach (var state in states)
+                {
+                    <button state="@(State)state" text="@state" kind="Lable" shape="Square" />
+                }
+
+            </section>
+
+        </portlet>
+
+    </div>
+
+</div>
+
+
+@section Styles{
+    <style>
+
+        .btn {
+            margin-bottom: 5px;
+        }
+    </style>
+}

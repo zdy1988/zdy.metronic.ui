@@ -1,0 +1,234 @@
+﻿@page
+@model AccordionModel
+@{
+    var icons = Enum.GetValues(typeof(Flat2Icon));
+    var modes = Enum.GetValues(typeof(AccordionMode));
+    var toggleIcons = Enum.GetValues(typeof(AccordionToggleIcon));
+
+    Random random = new Random();
+}
+
+<div class="row">
+
+    <div class="col-lg-6">
+
+        <portlet title="Default Accordion">
+
+            <accordion>
+
+                @for (var i = 1; i <= 3; i++)
+                {
+                    <accordion-card>
+                        <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
+                        <p>
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                            nesciunt laborum eiusmod.
+                        </p>
+                    </accordion-card>
+                }
+
+            </accordion>
+
+            <h4 class="m-4">Coexisted</h4>
+
+            <accordion is-exclusived="false">
+
+                @for (var i = 1; i <= 3; i++)
+                {
+                    <accordion-card>
+                        <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
+                        <p>
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                            nesciunt laborum eiusmod.
+                        </p>
+                    </accordion-card>
+                }
+
+            </accordion>
+
+            <div class="kt-space-20"></div>
+
+            <h4 class="m-4">No Card</h4>
+
+            <accordion></accordion>
+
+        </portlet>
+
+        <portlet title="Accordion Mode">
+
+            @foreach (var mode in modes)
+            {
+                @mode
+
+                <div class="kt-space-10"></div>
+
+                <accordion mode="@(AccordionMode)mode">
+
+                    @for (var i = 1; i <= 3; i++)
+                    {
+                        <accordion-card title="Accordion Card Item #@i">
+                            <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
+                            <p>
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                                nesciunt laborum eiusmod.
+                            </p>
+                        </accordion-card>
+                    }
+
+                </accordion>
+
+                <div class="kt-space-20"></div>
+
+            }
+
+        </portlet>
+
+        <portlet title="More Svg">
+
+            @foreach (var mode in modes)
+            {
+                @mode
+
+                <div class="kt-space-10"></div>
+
+                <accordion mode="@(AccordionMode)mode" toggle-icon="Svg">
+
+                    @for (var i = 1; i <= 3; i++)
+                    {
+                        <accordion-card title="Accordion Card Item #@i" icon="@(Flat2Icon)random.Next(1,200)">
+                            <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
+                            <p>
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                                nesciunt laborum eiusmod.
+                            </p>
+                        </accordion-card>
+                    }
+
+                </accordion>
+
+                <div class="kt-space-20"></div>
+
+            }
+
+        </portlet>
+
+
+
+
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <portlet title="Accordion Icon">
+
+            <accordion>
+                @for (var i = 1; i <= 3; i++)
+                {
+                    <accordion-card title="Accordion Card Item #@i" icon="@(Flat2Icon)random.Next(1,200)">
+                        <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
+                        <p>
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                            nesciunt laborum eiusmod.
+                        </p>
+                    </accordion-card>
+                }
+            </accordion>
+
+        </portlet>
+
+        <portlet title="Accordion Toggle Icon">
+
+            @foreach (var toggleIcon in toggleIcons)
+            {
+                @toggleIcon
+
+                <div class="kt-space-10"></div>
+
+                <accordion toggle-icon="@(AccordionToggleIcon)toggleIcon">
+                    @for (var i = 1; i <= 3; i++)
+                    {
+                        <accordion-card title="Accordion Card Item #@i" icon="@(Flat2Icon)random.Next(1,200)">
+                            <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
+                            <p>
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                                nesciunt laborum eiusmod.
+                            </p>
+                        </accordion-card>
+                    }
+                </accordion>
+
+                <div class="kt-space-20"></div>
+            }
+
+        </portlet>
+
+        <portlet title="Accordion Item Active">
+
+            <accordion>
+                <accordion-card title="Accordion Card Item #1" icon="@(Flat2Icon)random.Next(1,200)">
+                    <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
+                    <p>
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                        nesciunt laborum eiusmod.
+                    </p>
+                </accordion-card>
+                <accordion-card title="Accordion Card Item #2" icon="@(Flat2Icon)random.Next(1,200)" is-actived="true">
+                    <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
+                    <p>
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                        nesciunt laborum eiusmod.
+                    </p>
+                </accordion-card>
+                <accordion-card title="Accordion Card Item #3" icon="@(Flat2Icon)random.Next(1,200)">
+                    <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
+                    <p>
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                        nesciunt laborum eiusmod.
+                    </p>
+                </accordion-card>
+            </accordion>
+
+        </portlet>
+
+        <portlet title="Accordion Content">
+
+            <accordion>
+                <accordion-card title="Accordion Card Item #1" icon="@(Flat2Icon)random.Next(1,200)" text="Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut."/>
+                <accordion-card title="Accordion Card Item #2" icon="@(Flat2Icon)random.Next(1,200)" is-actived="true" text="Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.">
+                    <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
+                    <p>
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                        nesciunt laborum eiusmod.
+                    </p>
+                </accordion-card>
+                <accordion-card title="Accordion Card Item #3" icon="@(Flat2Icon)random.Next(1,200)">
+                    <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
+                    <p>
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                        nesciunt laborum eiusmod.
+                    </p>
+                </accordion-card>
+            </accordion>
+
+        </portlet>
+
+        <accordion mode="Solid" toggle-icon="Svg">
+
+            @for (var i = 1; i <= 3; i++)
+            {
+                <accordion-card title="Accordion Card Item #@i" icon="@(Flat2Icon)random.Next(1,200)">
+                    <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
+                    <p>
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                        nesciunt laborum eiusmod.
+                    </p>
+                </accordion-card>
+            }
+
+        </accordion>
+
+    </div>
+
+</div>
+

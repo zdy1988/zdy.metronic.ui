@@ -1,0 +1,207 @@
+﻿@page
+@model Web.TextBoxModel
+@{
+    var textBoxKinds = Enum.GetValues(typeof(TextBoxKinds));
+
+    var sizes = Enum.GetValues(typeof(Size));
+}
+
+<div class="row">
+
+    <div class="col-lg-12">
+
+        <portlet title="Only Input" is-height-fluid="false">
+
+            <div class="row">
+
+                @foreach (var kind in textBoxKinds)
+                {
+
+                    <div class="col-lg-6 mb-5">
+
+                        <p>Type: @kind</p>
+
+                        <text-box kind="@(TextBoxKinds)kind" field="@kind" />
+
+                    </div>
+                }
+
+            </div>
+
+        </portlet>
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-lg-6">
+
+        <portlet title="Base TextBox" is-height-fluid="false">
+
+            @foreach (var kind in textBoxKinds)
+            {
+
+                <text-box kind="@(TextBoxKinds)kind" name="@kind" field="@kind" />
+
+            }
+
+        </portlet>
+
+        <portlet title="TextBox Size" is-height-fluid="false">
+
+            @foreach (var size in sizes)
+            {
+
+                <text-box kind="Text" name="@size" field="@size" size="@(Size)size" />
+
+            }
+
+        </portlet>
+
+        <portlet title="TextBox Icon Style" is-height-fluid="false">
+
+            <text-box kind="Text" icon="Globe" name="Icon" field="Icon" />
+
+            <text-box kind="Textarea" icon="Globe" name="Icon" field="Icon" />
+
+            <text-box kind="Text" icon="Search" name="Icon" field="Icon" icon-align="Right" />
+
+            <text-box kind="Textarea" icon="Search" name="Icon" field="Icon" icon-align="Right" />
+
+            @foreach (var size in sizes)
+            {
+
+                <text-box kind="Text" name="@size" field="@size" size="@(Size)size" icon="SearchPlus" />
+
+            }
+
+        </portlet>
+
+        <portlet title="TextBox Required" is-height-fluid="false">
+
+            <text-box kind="Text" name="Required" field="Required" is-required="true" />
+
+            <text-box kind="Text" name="Required" field="Required" is-required="true" group-mode="Horizontal" />
+
+            <text-box kind="Text" name="Required" field="Required" is-required="true" group-mode="Compact" />
+
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <portlet title="Horizontal Style" is-height-fluid="false">
+
+            @foreach (var kind in textBoxKinds)
+            {
+
+                <text-box kind="@(TextBoxKinds)kind" name="@kind" field="@kind" group-mode="Horizontal" />
+
+            }
+
+        </portlet>
+
+        <portlet title="Compact Style" is-height-fluid="false">
+
+            @foreach (var kind in textBoxKinds)
+            {
+
+                <text-box kind="@(TextBoxKinds)kind" name="@kind" field="@kind" group-mode="Compact" />
+
+            }
+
+        </portlet>
+
+        <portlet title="TextBox State" is-height-fluid="false">
+
+            <text-box kind="Text" name="Disabled" field="Disabled" is-disabled="true" />
+
+            <text-box kind="Textarea" name="Disabled" field="Disabled" is-disabled="true" />
+
+        </portlet>
+
+        <portlet title="TextBox Text Addon" is-height-fluid="false">
+
+            <text-box kind="Text" name="Left Addon" field="Left Addon" prepend-text="$" />
+
+            <text-box kind="Text" name="Right Addon" field="Right Addon" append-text="px" />
+
+            <text-box kind="Text" name="Only Text Addon" field="Only Text Addon" prepend-text="$" append-text="px" />
+
+        </portlet>
+
+        <portlet title="TextBox Addon" is-height-fluid="false">
+
+            <text-box kind="Text" name="Addon" field="Addon" prepend-text="$">
+
+                <text-box-addon is-text-addon="true">
+                    text
+                </text-box-addon>
+
+            </text-box>
+
+            <text-box kind="Text" name="Addon" field="Addon" prepend-text="$">
+
+                <text-box-addon>
+                    <button state="Success" text="Go!"></button>
+                </text-box-addon>
+
+            </text-box>
+
+            <text-box kind="Text" name="Addon" field="Addon">
+
+                <text-box-addon>
+                    <button state="Success" text="Go!"></button>
+                    <button state="Danger" text="Go!"></button>
+                </text-box-addon>
+
+                <text-box-addon>
+                    <button state="Warning" text="Go!"></button>
+                </text-box-addon>
+
+
+                <text-box-addon align="Right">
+                    <button state="Primary" text="Go!"></button>
+                </text-box-addon>
+
+            </text-box>
+
+            <text-box kind="Text" name="Left & Right Button Dropdown" field="Addon">
+
+                <text-box-addon>
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div role="separator" class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                </text-box-addon>
+
+
+                <text-box-addon align="Right">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div role="separator" class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                </text-box-addon>
+
+            </text-box>
+
+        </portlet>
+
+    </div>
+
+</div>

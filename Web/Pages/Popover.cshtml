@@ -1,0 +1,72 @@
+﻿@page
+@model Web.PopoverModel
+@{
+    var placements = Enum.GetValues(typeof(Placement));
+}
+
+<div class="row">
+
+    <div class="col-lg-6">
+
+        <portlet title="Basic Examples">
+
+            <section title="Basic Usage">
+
+                <button state="Danger" text="Click Me!" popover popover-title="Popover title" popover-content="And here's some amazing content. It's very engaging. Right?" />
+
+                <badge state="Danger" text="Hover Me!" popover popover-title="Popover title" popover-content="And here's some amazing content. It's very engaging. Right?" />
+
+                <span popover popover-title="Popover title" popover-content="And here's some amazing content. It's very engaging. Right?">dsadsa11</span>
+
+            </section>
+
+            <section title="Directions">
+
+                @foreach (var placement in placements)
+                {
+                    if ((Placement)placement == Placement.None)
+                    {
+                        continue;
+                    }
+
+                    <button state="Danger" text="Popover on @placement" popover popover-placement="@(Placement)placement" popover-title="Popover title" popover-content="And here's some amazing content. It's very engaging. Right?" />
+                }
+
+            </section>
+
+
+            <section title="Dismiss on next click">
+
+                <button state="Danger" text="Click Me!" popover popover-trigger="Focus" popover-title="Popover title" popover-content="And here's some amazing content. It's very engaging. Right?" />
+
+            </section>
+
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <portlet>
+
+            <section title="HTML Content">
+
+                <button state="Danger" text="Click Me!" popover popover-trigger="Focus" popover-title="Popover title" popover-content="And here's some amazing <b>HTML</b> content. It's very <code>engaging</code>. Right?" />
+
+            </section>
+
+            <section title="Offset">
+
+                <button state="Success" text="Click Me!" popover popover-offset="(20, 20)" popover-trigger="Focus" popover-title="Popover title" popover-content="And here's some amazing <b>HTML</b> content. It's very <code>engaging</code>. Right?" />
+
+                <button state="Warning" text="Click Me!" popover popover-offset="(-20, -20)" popover-trigger="Focus" popover-title="Popover title" popover-content="And here's some amazing <b>HTML</b> content. It's very <code>engaging</code>. Right?" />
+
+                <button state="Danger" text="Click Me!" popover popover-offset="(60, 0)" popover-trigger="Focus" popover-title="Popover title" popover-content="And here's some amazing <b>HTML</b> content. It's very <code>engaging</code>. Right?" />
+
+            </section>
+
+        </portlet>
+
+    </div>
+
+</div>

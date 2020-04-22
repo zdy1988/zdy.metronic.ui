@@ -1,0 +1,101 @@
+﻿@page
+@model Web.Pages.IconModel
+
+@{
+    var svgIcons = Enum.GetValues(typeof(SvgIcon));
+    var flatIcons = Enum.GetValues(typeof(FlatIcon));
+    var flat2Icons = Enum.GetValues(typeof(Flat2Icon));
+    var fontawesomeIcons = Enum.GetValues(typeof(FontawesomeIcon));
+    var lineawesomeIcons = Enum.GetValues(typeof(LineawesomeIcon));
+    var socIcons = Enum.GetValues(typeof(SocIcon));
+}
+
+<div class="row">
+
+    @foreach (var icon in svgIcons)
+    {
+        <div class="col-md-2 text-center">
+            <br />
+            <icon-svg name="@((SvgIcon)icon)" style="height: 40px; width: 40px;" />
+            <br />  <br />
+            <span>@icon</span>
+            <br />
+        </div>
+    }
+
+</div>
+
+<div class="row">
+
+    @foreach (var icon in flatIcons)
+    {
+        <div class="col-md-2 text-center">
+            <br />
+            <icon-flat name="@((FlatIcon)icon)" style="font-size: 2.5rem;" />
+            <br />  <br />
+            <span>@icon</span>
+            <br />
+        </div>
+    }
+
+</div>
+
+<div class="row">
+
+    @foreach (var icon in flat2Icons)
+    {
+        <div class="col-md-2 text-center">
+            <br />
+            <icon-flat2 name="@((Flat2Icon)icon)" style="font-size: 2.5rem;" />
+            <br />  <br />
+            <span>@icon</span>
+            <br />
+        </div>
+    }
+
+</div>
+
+<div class="row">
+
+    @foreach (var icon in fontawesomeIcons)
+    {
+        <div class="col-md-2 text-center">
+            <br />
+            <icon-fa name="@((FontawesomeIcon)icon)" style="font-size: 2.5rem;" />
+            <br />  <br />
+            <span>@icon</span>
+            <br />
+        </div>
+    }
+
+</div>
+
+<div class="row">
+
+    @foreach (var icon in lineawesomeIcons)
+    {
+        <div class="col-md-2 text-center">
+            <br />
+            <icon-line name="@((LineawesomeIcon)icon)" style="font-size: 2.5rem;" />
+            <br />  <br />
+            <span>@icon</span>
+            <br />
+        </div>
+    }
+
+</div>
+
+<div class="row">
+
+    @foreach (var icon in socIcons)
+    {
+        <div class="col-md-2 text-center">
+            <br />
+            <icon-soc name="@((SocIcon)icon)" style="font-size: 2.5rem;" />
+            <br />  <br />
+            <span>@icon</span>
+            <br />
+        </div>
+    }
+
+</div>

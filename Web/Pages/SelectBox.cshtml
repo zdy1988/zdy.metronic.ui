@@ -1,0 +1,140 @@
+﻿@page
+@model Web.SelectBoxModel
+@{
+          var sizes = Enum.GetValues(typeof(Size));
+}
+
+    <div class="row">
+
+        <div class="col-lg-12">
+
+            <portlet title="Select Box">
+
+                <div class="row">
+
+                    <div class="col-lg-6 mb-5">
+
+                        <select-box>
+                            <select-option name="option 1" />
+                        </select-box>
+
+                    </div>
+
+                    <div class="col-lg-6 mb-5">
+
+                        <select-box rows="3">
+                            <select-option name="option 1" />
+                        </select-box>
+
+                    </div>
+
+                    <div class="col-lg-6 mb-5">
+
+                        <select-box is-place-holder-destroyed="true">
+                            <select-option name="option 1" />
+                        </select-box>
+
+                    </div>
+
+                    <div class="col-lg-6 mb-5">
+
+                        <select-box is-disabled="true">
+                            <select-option name="option 1" />
+                        </select-box>
+
+                    </div>
+
+                    <div class="col-lg-6 mb-5">
+
+                        <select-box name="Select Box">
+                            <select-option name="option 1" value="1" />
+                        </select-box>
+
+                    </div>
+
+
+                    <div class="col-lg-6 mb-5">
+
+                        <select-box name="Select Box" rows="3">
+                            <select-option name="option 1" value="1" />
+                        </select-box>
+
+                    </div>
+
+                    @foreach (var size in sizes)
+                    {
+                        <div class="col-lg-6 mb-5">
+                            <select-box name="@size Select Box" size="@(Size)size">
+                                <select-option name="option 1" value="1" />
+                            </select-box>
+                        </div>
+                    }
+
+
+                </div>
+
+            </portlet>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-12">
+
+            <portlet title="Data">
+
+                <div class="row">
+
+                    <div class="col-lg-6 mb-5">
+
+                        <select-box options="@Model.Options" />
+
+                    </div>
+
+                    <div class="col-lg-6 mb-5">
+
+                        <select-box options="@Model.Sections" />
+
+                    </div>
+
+                    <div class="col-lg-6 mb-5">
+
+                        <select-box options="@Model.Options" rows="3" />
+
+                    </div>
+
+                    <div class="col-lg-6 mb-5">
+
+                        <select-box options="@Model.Sections" rows="3" / />
+
+                    </div>
+
+                    <div class="col-lg-6 mb-5">
+
+                        <select-box options="@Model.Options">
+                            <select-option name="option Attach 1" value="100" />
+                            <select-option name="option Attach 2" value="100" />
+                            <select-option name="option Attach 3" value="100" />
+                        </select-box>
+
+                    </div>
+
+                    <div class="col-lg-6 mb-5">
+
+                        <select-box options="@Model.Sections">
+                            <select-option name="option Attach 1" value="100" section="Attach 1" />
+                            <select-option name="option Attach 2" value="100" section="Attach 1" />
+                            <select-option name="option Attach 3" value="100" section="Attach 2" />
+                        </select-box>
+
+                    </div>
+
+                </div>
+
+            </portlet>
+
+        </div>
+
+    </div>

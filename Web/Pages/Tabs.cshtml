@@ -1,0 +1,259 @@
+﻿@page
+@model Web.Pages.TabsModel
+@{
+    var states = Enum.GetValues(typeof(State));
+
+    var sizes = Enum.GetValues(typeof(Size));
+
+    Random random = new Random();
+}
+
+<div class="row">
+
+    <div class="col-lg-6">
+
+        <portlet title="Default Line Tabs">
+
+            <tabs>
+
+                @for (var i = 1; i <= 5; i++)
+                {
+
+                    <tab-pane name="Section @i">
+
+                        <p> I'm in Section @i. </p>
+                        <p>
+                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                            aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+                            velit esse molestie consequat.
+                        </p>
+
+                    </tab-pane>
+
+                }
+
+            </tabs>
+
+        </portlet>
+
+        <portlet title="Line Tabs Spaces">
+
+            @foreach (var size in sizes)
+            {
+
+                <h4>@size</h4>
+
+                <div class="kt-space-10"></div>
+
+                <tabs state="Success" space="@(Size)size">
+
+                    @for (var i = 1; i <= 5; i++)
+                    {
+
+                        <tab-pane name="Section @i">
+
+                            <p> I'm in Section @i. </p>
+                            <p>
+                                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                                aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+                                velit esse molestie consequat.
+                            </p>
+
+                        </tab-pane>
+
+                    }
+
+                </tabs>
+
+                <div class="kt-space-20"></div>
+
+            }
+
+        </portlet>
+
+        <portlet title="Line Tabs Justified">
+
+            <tabs state="Success" is-justified="true">
+
+                @for (var i = 1; i <= 3; i++)
+                {
+
+                    <tab-pane name="Section @i">
+
+                        <p> I'm in Section @i. </p>
+                        <p>
+                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                            aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+                            velit esse molestie consequat.
+                        </p>
+
+                    </tab-pane>
+
+                }
+
+            </tabs>
+
+        </portlet>
+
+        <portlet title="Line Tabs Limit">
+
+            <tabs state="Success" limit="3">
+
+                @for (var i = 1; i <= 8; i++)
+                {
+
+                    <tab-pane name="Section @i">
+
+                        <p> I'm in Section @i. </p>
+                        <p>
+                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                            aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+                            velit esse molestie consequat.
+                        </p>
+
+                    </tab-pane>
+
+                }
+
+            </tabs>
+
+        </portlet>
+
+        <portlet title="Line Tabs Active Index">
+
+            <tabs state="Success" limit="3" active-index="2">
+
+                @for (var i = 1; i <= 8; i++)
+                {
+
+                    <tab-pane name="Section @i">
+
+                        <p> I'm in Section @i. </p>
+                        <p>
+                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                            aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+                            velit esse molestie consequat.
+                        </p>
+
+                    </tab-pane>
+
+                }
+
+            </tabs>
+
+            <div class="kt-space-20"></div>
+
+            <tabs state="Warning" limit="3" active-index="3">
+
+                @for (var i = 1; i <= 8; i++)
+                {
+
+                    <tab-pane name="Section @i">
+
+                        <p> I'm in Section @i. </p>
+                        <p>
+                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                            aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+                            velit esse molestie consequat.
+                        </p>
+
+                    </tab-pane>
+
+                }
+
+            </tabs>
+
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <portlet title="Line Tabs States">
+
+            @foreach (var state in states)
+            {
+
+                <h4>@state</h4>
+
+                <div class="kt-space-10"></div>
+
+                <tabs state="@(State)state">
+
+                    @for (var i = 1; i <= 5; i++)
+                    {
+
+                        <tab-pane name="Section @i">
+
+                            <p> I'm in Section @i. </p>
+                            <p>
+                                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                                aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+                                velit esse molestie consequat.
+                            </p>
+
+                        </tab-pane>
+
+                    }
+
+                </tabs>
+
+                <div class="kt-space-20"></div>
+
+            }
+
+        </portlet>
+
+        <portlet title="Line Tabs Icon">
+
+            <tabs state="Success" limit="3">
+
+                @for (var i = 1; i <= 8; i++)
+                {
+
+                    <tab-pane name="Section @i" icon="@(Flat2Icon)random.Next(1,200)">
+
+                        <p> I'm in Section @i. </p>
+                        <p>
+                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                            aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+                            velit esse molestie consequat.
+                        </p>
+
+                    </tab-pane>
+
+                }
+
+            </tabs>
+
+        </portlet>
+
+        <portlet title="Line Tabs Disabled">
+
+            <tabs state="Success" limit="3">
+
+                @for (var i = 1; i <= 8; i++)
+                {
+                    var isDisabled = i % 2 == 0;
+
+                    <tab-pane name="Section @i" icon="@(Flat2Icon)random.Next(1,200)" is-disabled="isDisabled">
+
+                        <p> I'm in Section @i. </p>
+                        <p>
+                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                            aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+                            velit esse molestie consequat.
+                        </p>
+
+                    </tab-pane>
+
+                }
+
+            </tabs>
+
+        </portlet>
+
+    </div>
+
+</div>
+

@@ -1,0 +1,59 @@
+﻿@page
+@model Web.SwitchModel
+@{
+          var sizes = Enum.GetValues(typeof(Size));
+    var states = Enum.GetValues(typeof(State));
+}
+
+    <div class="row">
+
+        <div class="col-lg-6">
+
+            <portlet title="Basic Examples">
+
+                <switch />
+
+                <switch is-icon="true" />
+
+            </portlet>
+
+            <portlet title="Sizing">
+
+                @foreach (var size in sizes)
+                {
+                    <switch size="@(Size)size" />
+
+                    <switch is-icon="true" size="@(Size)size" />
+                }
+
+            </portlet>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <portlet title="Color">
+
+                @foreach (var state in states)
+                {
+                    <switch state="@(State)state" />
+
+                    <switch is-icon="true" state="@(State)state" />
+                }
+
+            </portlet>
+
+            <portlet title="Outline">
+
+                @foreach (var state in states)
+                {
+                    <switch state="@(State)state" is-outline="true"/>
+
+                    <switch is-icon="true" state="@(State)state" is-outline="true"/>
+                }
+
+            </portlet>
+
+        </div>
+
+    </div>

@@ -1,0 +1,147 @@
+﻿@page
+@model Web.BadgeModel
+@{
+    var sizes = Enum.GetValues(typeof(Size));
+    var states = Enum.GetValues(typeof(State));
+    var shapes = Enum.GetValues(typeof(BadgeShape));
+    var modes = Enum.GetValues(typeof(BadgeMode));
+
+    Random random = new Random();
+}
+
+    <div class="row">
+
+        <div class="col-lg-6">
+
+            <portlet title="Basic Examples">
+
+
+                <section info="Basic state color badges">
+
+                    @foreach (var state in states)
+                    {
+                        <badge state="@(State)state" text="@random.Next(0,9)" />
+                    }
+
+                </section>
+
+
+            </portlet>
+
+            <portlet title="Sizes">
+
+                @foreach (var size in sizes)
+                {
+                    <section info="@size">
+
+                        @foreach (var state in states)
+                        {
+                            <badge state="@(State)state" size="@(Size)size" text="@random.Next(0,9)" />
+                        }
+
+                    </section>
+                }
+
+            </portlet>
+
+            <portlet title="Modes">
+
+                @foreach (var mode in modes)
+                {
+                    <section info="@mode">
+
+                        @foreach (var state in states)
+                        {
+                            <badge state="@(State)state" mode="@(BadgeMode)mode" text="@random.Next(0,9)" size="Lg" font-weight="Bold" />
+                        }
+
+                    </section>
+                }
+
+            </portlet>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <portlet title="Shapes">
+
+                @foreach (var shape in shapes)
+                {
+                    <section info="@shape">
+
+                        @foreach (var state in states)
+                        {
+                            <badge state="@(State)state" shape="@(BadgeShape)shape" text="@random.Next(0,9)" size="Lg" />
+                        }
+
+                    </section>
+                }
+
+            </portlet>
+
+            <portlet title="More Styles & Options">
+
+                <section info="Dot style">
+
+                    @foreach (var state in states)
+                    {
+                        @state <badge state="@(State)state" shape="Dot" text="@random.Next(0,9)" />
+                    }
+
+                    <div class="kt-space-10"></div>
+
+                    @foreach (var state in states)
+                    {
+                        @state <badge state="@(State)state" shape="Dot" text="@random.Next(0,9)" size="Sm" />
+                    }
+
+                </section>
+
+
+                <section info="Wide badges for longer text:">
+
+                    @foreach (var state in states)
+                    {
+                        <badge state="@(State)state" text="@state" />
+                    }
+
+                    <div class="kt-space-10"></div>
+
+                    @foreach (var state in states)
+                    {
+                        <badge state="@(State)state" text="@random.Next(0,250)" />
+                    }
+
+                    <div class="kt-space-10"></div>
+
+                    <badge state="Success" text="H" />
+
+                    <badge state="Danger" text="ZH" />
+
+                    <badge state="Danger" text="ZHANG" />
+
+                    <div class="kt-space-10"></div>
+
+                    <badge state="Success" text="你" />
+
+                    <badge state="Danger" text="你好" />
+
+                    <badge state="Warning" text="你好呀" />
+
+                </section>
+
+                <section info="Rounded badges examples:">
+
+                    @foreach (var state in states)
+                    {
+                        <badge state="@(State)state" text="@state" shape="Rounded" />
+                    }
+
+                </section>
+
+            </portlet>
+
+        </div>
+
+    </div>

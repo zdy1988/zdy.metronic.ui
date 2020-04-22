@@ -1,0 +1,171 @@
+﻿@page
+@model Web.RibbonModel
+@{
+    var states = Enum.GetValues(typeof(State));
+    var modes = Enum.GetValues(typeof(RibbonMode));
+    var positions = Enum.GetValues(typeof(RibbonPosition));
+    var borders = Enum.GetValues(typeof(RibbonBorder));
+
+    Random random = new Random();
+}
+
+<div class="row">
+
+    <div class="col-lg-4">
+
+        <portlet icon="Graphic" ribbon ribbon-text="Ribbon">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+        </portlet>
+
+    </div>
+
+</div>
+
+<h4>Ribbon State</h4>
+<div class="kt-space-20"></div>
+
+<div class="row">
+
+    @foreach (var state in states)
+    {
+
+        <div class="col-lg-4">
+
+            <portlet icon="Graphic" ribbon ribbon-text="@state Ribbon" ribbon-state="@(State)state">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+            </portlet>
+
+        </div>
+
+    }
+
+</div>
+
+<h4>Ribbon Position</h4>
+<div class="kt-space-20"></div>
+
+<div class="row">
+
+    @foreach (var position in positions)
+    {
+        <div class="col-lg-4">
+
+            <portlet icon="Graphic" ribbon ribbon-text="Ribbon On @position" ribbon-position="@(RibbonPosition)position">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+            </portlet>
+
+        </div>
+    }
+
+</div>
+
+<h4>Ribbon Custom Position</h4>
+<div class="kt-space-20"></div>
+
+<div class="row">
+
+    <div class="col-lg-4">
+
+        <portlet icon="Graphic" ribbon ribbon-text="Ribbon On Custom Position" ribbon-left="40" ribbon-top="-20">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+        </portlet>
+
+    </div>
+
+</div>
+
+<h4>Ribbon Mode & Position</h4>
+<div class="kt-space-20"></div>
+
+<div class="row">
+
+    @foreach (var mode in modes)
+    {
+
+        @foreach (var position in positions)
+        {
+            <div class="col-lg-4">
+
+                <portlet icon="Graphic" ribbon ribbon-text="@mode Ribbon On @position" ribbon-position="@(RibbonPosition)position" ribbon-mode="@(RibbonMode)mode">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                </portlet>
+
+            </div>
+        }
+
+    }
+
+</div>
+
+<h4>Ribbon Mode & Border</h4>
+<div class="kt-space-20"></div>
+
+<div class="row">
+
+    @foreach (var mode in modes)
+    {
+        @foreach (var border in borders)
+        {
+            if ((RibbonBorder)border == RibbonBorder.None)
+            {
+                continue;
+            }
+
+            <div class="col-lg-4">
+
+                <portlet icon="Graphic" ribbon ribbon-text="Ribbon With @border" ribbon-mode="@(RibbonMode)mode" ribbon-border="@(RibbonBorder)border" ribbon-icon="@(Flat2Icon)random.Next(1,200)">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                </portlet>
+
+            </div>
+        }
+    }
+
+</div>
+
+<h4>Ribbon Shadow</h4>
+<div class="kt-space-20"></div>
+
+<div class="row">
+
+    @foreach (var mode in modes)
+    {
+
+        <div class="col-lg-4">
+
+            <portlet icon="Graphic" ribbon ribbon-shadow ribbon-text="@mode Ribbon" ribbon-mode="@(RibbonMode)mode">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+            </portlet>
+
+        </div>
+
+    }
+
+</div>
+
+<h4>More Container</h4>
+<div class="kt-space-20"></div>
+
+<div class="row">
+
+    @foreach (var mode in modes)
+    {
+        <div class="col-lg-4">
+
+            <accordion ribbon ribbon-shadow ribbon-text="@mode Ribbon" ribbon-mode="@(RibbonMode)mode">
+                @for (var i = 1; i <= 3; i++)
+                {
+                    <accordion-card title="Accordion Card Item #@i" icon="@(Flat2Icon)random.Next(1,200)">
+                        <p> Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. </p>
+                        <p>
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                            nesciunt laborum eiusmod.
+                        </p>
+                    </accordion-card>
+                }
+            </accordion>
+
+        </div>
+    }
+
+</div>

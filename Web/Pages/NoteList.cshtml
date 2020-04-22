@@ -1,0 +1,88 @@
+﻿@page
+@model Web.NoteListModel
+@{
+    var states = Enum.GetValues(typeof(State));
+
+    Random random = new Random();
+}
+
+<div class="row">
+
+    <div class="col-lg-6">
+
+        <portlet>
+
+            <note-list>
+
+                <note-item title="New order" descrption="9:30AM 16 June, 2015" content="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium aque ipsa quae ab illo inventore veritatis et quasi architecto." />
+
+                @foreach (var state in states)
+                {
+                    <note-item title="New order" descrption="9:30AM 16 June, 2015" state="@(State)state" content="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium aque ipsa quae ab illo inventore veritatis et quasi architecto.">
+                        <badge text="@state" state="@(State)state" />
+                    </note-item>
+                }
+
+                <note-item title="New order" descrption="9:30AM 16 June, 2015" content="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium aque ipsa quae ab illo inventore veritatis et quasi architecto.">
+
+                    <note-item-dropdown>
+
+                        <button icon="ChartLine">Reports</button>
+                        <button icon="MailBulk">Messages</button>
+                        <button icon="ChartPie">Charts</button>
+                        <button icon="UserSecret">Members</button>
+
+                    </note-item-dropdown>
+
+                </note-item>
+
+                <note-item title="New order" descrption="9:30AM 16 June, 2015" content="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium aque ipsa quae ab illo inventore veritatis et quasi architecto.">
+
+                    <note-item-dropdown icon="Menu">
+
+                        <button icon="ChartLine">Reports</button>
+                        <button icon="MailBulk">Messages</button>
+                        <button icon="ChartPie">Charts</button>
+                        <button icon="UserSecret">Members</button>
+
+                    </note-item-dropdown>
+
+                </note-item>
+
+
+            </note-list>
+
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <portlet>
+
+            <note-list>
+
+                <note-item title="New order" descrption="9:30AM 16 June, 2015" image-url="media/users/100_3.jpg" content="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium aque ipsa quae ab illo inventore veritatis et quasi architecto." />
+
+                @foreach (var state in states)
+                {
+                    <note-item title="New order" descrption="9:30AM 16 June, 2015" state="@(State)state" icon="@(Flat2Icon)random.Next(0, 200)" content="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium aque ipsa quae ab illo inventore veritatis et quasi architecto.">
+                        <badge text="@state" state="@(State)state" />
+                    </note-item>
+                }
+
+                <note-item title="ZHANG" descrption="9:30AM 16 June, 2015" placeholder="ZHANG" content="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium aque ipsa quae ab illo inventore veritatis et quasi architecto." />
+
+                <note-item title="你" descrption="9:30AM 16 June, 2015" placeholder="你" content="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium aque ipsa quae ab illo inventore veritatis et quasi architecto." />
+
+                <note-item title="你好" descrption="9:30AM 16 June, 2015" state="Brand" placeholder="你好" content="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium aque ipsa quae ab illo inventore veritatis et quasi architecto." />
+
+                <note-item title="你好呀" descrption="9:30AM 16 June, 2015" placeholder="你好呀" content="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium aque ipsa quae ab illo inventore veritatis et quasi architecto." />
+
+            </note-list>
+
+        </portlet>
+
+    </div>
+
+</div>

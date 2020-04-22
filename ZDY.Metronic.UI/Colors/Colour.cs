@@ -1,0 +1,72 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace ZDY.Metronic.UI.Colors
+{
+    internal static class Colour
+    {
+        internal static Dictionary<Color, ColourValue> All = new Dictionary<Color, ColourValue>
+        {
+             {Color.White, new ColourValue{Name="white", Base= "#ffffff", Font= "#666"}},
+             {Color.Black, new ColourValue{Name="black", Base= "#000000", Font= "#FFFFFF"}},
+             {Color.Default, new ColourValue{Name="default", Base= "#e1e5ec", Font= "#666"}},
+             {Color.Dark, new ColourValue{Name="dark", Base= "#2f353b", Font= "#FFFFFF"}},
+             {Color.Blue, new ColourValue{Name="blue", Base= "#3598dc", Font= "#FFFFFF"}},
+             {Color.BlueMadison, new ColourValue{Name="blue-madison", Base= "#578ebe", Font= "#FFFFFF"}},
+             {Color.BlueChambray, new ColourValue{Name="blue-chambray", Base= "#2C3E50", Font= "#FFFFFF"}},
+             {Color.BlueEbonyclay, new ColourValue{Name="blue-ebonyclay", Base= "#22313F", Font= "#FFFFFF"}},
+             {Color.BlueHoki, new ColourValue{Name="blue-hoki", Base= "#67809F", Font= "#FFFFFF"}},
+             {Color.BlueSteel, new ColourValue{Name="blue-steel", Base= "#4B77BE", Font= "#FFFFFF"}},
+             {Color.BlueSoft, new ColourValue{Name="blue-soft", Base= "#4c87b9", Font= "#FFFFFF"}},
+             {Color.BlueDark, new ColourValue{Name="blue-dark", Base= "#5e738b", Font= "#FFFFFF"}},
+             {Color.BlueSharp, new ColourValue{Name="blue-sharp", Base= "#5C9BD1", Font= "#FFFFFF"}},
+             {Color.BlueOleo, new ColourValue{Name="blue-oleo", Base= "#94A0B2", Font= "#FFFFFF"}},
+             {Color.Green, new ColourValue{Name="green", Base= "#32c5d2", Font= "#FFFFFF"}},
+             {Color.GreenMeadow, new ColourValue{Name="green-meadow", Base= "#1BBC9B", Font= "#FFFFFF"}},
+             {Color.GreenSeagreen, new ColourValue{Name="green-seagreen", Base= "#1BA39C", Font= "#FFFFFF"}},
+             {Color.GreenTurquoise, new ColourValue{Name="green-turquoise", Base= "#36D7B7", Font= "#FFFFFF"}},
+             {Color.GreenHaze, new ColourValue{Name="green-haze", Base= "#44b6ae", Font= "#FFFFFF"}},
+             {Color.GreenJungle, new ColourValue{Name="green-jungle", Base= "#26C281", Font= "#FFFFFF"}},
+             {Color.GreenSoft, new ColourValue{Name="green-soft", Base= "#3faba4", Font= "#FFFFFF"}},
+             {Color.GreenDark, new ColourValue{Name="green-dark", Base= "#4DB3A2", Font= "#FFFFFF"}},
+             {Color.GreenSharp, new ColourValue{Name="green-sharp", Base= "#2ab4c0", Font= "#FFFFFF"}},
+             {Color.GreenSteel, new ColourValue{Name="green-steel", Base= "#29b4b6", Font= "#FFFFFF"}},
+             {Color.Grey, new ColourValue{Name="grey", Base= "#E5E5E5", Font= "#333333"}},
+             {Color.GreySteel, new ColourValue{Name="grey-steel", Base= "#e9edef", Font= "#80898e"}},
+             {Color.GreyCararra, new ColourValue{Name="grey-cararra", Base= "#fafafa", Font= "#333333"}},
+             {Color.GreyGallery, new ColourValue{Name="grey-gallery", Base= "#555555", Font= "#ffffff"}},
+             {Color.GreyCascade, new ColourValue{Name="grey-cascade", Base= "#95A5A6", Font= "#FFFFFF"}},
+             {Color.GreySilver, new ColourValue{Name="grey-silver", Base= "#BFBFBF", Font= "#FAFCFB"}},
+             {Color.GreySalsa, new ColourValue{Name="grey-salsa", Base= "#ACB5C3", Font= "#FAFCFB"}},
+             {Color.GreySalt, new ColourValue{Name="grey-salt", Base= "#bfcad1", Font= "#FAFCFB"}},
+             {Color.GreyMint, new ColourValue{Name="grey-mint", Base= "#525e64", Font= "#FFFFFF"}},
+             {Color.Red, new ColourValue{Name="red", Base= "#e7505a", Font= "#ffffff"}},
+             {Color.RedPink, new ColourValue{Name="red-pink", Base= "#E08283", Font= "#ffffff"}},
+             {Color.RedSunglo, new ColourValue{Name="red-sunglo", Base= "#E26A6A", Font= "#ffffff"}},
+             {Color.RedIntense, new ColourValue{Name="red-intense", Base= "#e35b5a", Font= "#ffffff"}},
+             {Color.RedThunderbird, new ColourValue{Name="red-thunderbird", Base= "#D91E18", Font= "#ffffff"}},
+             {Color.RedFlamingo, new ColourValue{Name="red-flamingo", Base= "#EF4836", Font= "#ffffff"}},
+             {Color.RedSoft, new ColourValue{Name="red-soft", Base= "#d05454", Font= "#ffffff"}},
+             {Color.RedHaze, new ColourValue{Name="red-haze", Base= "#f36a5a", Font= "#ffffff"}},
+             {Color.RedMint, new ColourValue{Name="red-mint", Base= "#e43a45", Font= "#ffffff"}},
+             {Color.Yellow, new ColourValue{Name="yellow", Base= "#c49f47", Font= "#ffffff"}},
+             {Color.YellowGold, new ColourValue{Name="yellow-gold", Base= "#E87E04", Font= "#ffffff"}},
+             {Color.YellowCasablanca, new ColourValue{Name="yellow-casablanca", Base= "#f2784b", Font= "#ffffff"}},
+             {Color.YellowCrusta, new ColourValue{Name="yellow-crusta", Base= "#f3c200", Font= "#ffffff"}},
+             {Color.YellowLemon, new ColourValue{Name="yellow-lemon", Base= "#F7CA18", Font= "#ffffff"}},
+             {Color.YellowSaffron, new ColourValue{Name="yellow-saffron", Base= "#F4D03F", Font= "#ffffff"}},
+             {Color.YellowSoft, new ColourValue{Name="yellow-soft", Base= "#c8d046", Font= "#ffffff"}},
+             {Color.YellowHaze, new ColourValue{Name="yellow-haze", Base= "#c5bf66", Font= "#ffffff"}},
+             {Color.YellowMint, new ColourValue{Name="yellow-mint", Base= "#c5b96b", Font= "#ffffff"}},
+             {Color.Purple, new ColourValue{Name="purple", Base= "#8E44AD", Font= "#ffffff"}},
+             {Color.PurplePlum, new ColourValue{Name="purple-plum", Base= "#8775a7", Font= "#ffffff"}},
+             {Color.PurpleMedium, new ColourValue{Name="purple-medium", Base= "#BF55EC", Font= "#ffffff"}},
+             {Color.PurpleStudio, new ColourValue{Name="purple-studio", Base= "#8E44AD", Font= "#ffffff"}},
+             {Color.PurpleWisteria, new ColourValue{Name="purple-wisteria", Base= "#9B59B6", Font= "#ffffff"}},
+             {Color.PurpleSeance, new ColourValue{Name="purple-seance", Base= "#9A12B3", Font= "#ffffff"}},
+             {Color.PurpleIntense, new ColourValue{Name="purple-intense", Base= "#8775a7", Font= "#ffffff"}},
+             {Color.PurpleSharp, new ColourValue{Name="purple-sharp", Base= "#796799", Font= "#ffffff"}},
+             {Color.PurpleSoft, new ColourValue{Name="purple-soft", Base= "#8877a9", Font= "#ffffff"} }
+        };
+    }
+}

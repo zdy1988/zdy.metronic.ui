@@ -1,0 +1,204 @@
+﻿@page
+@model Web.CheckBoxModel
+@{
+     var states = Enum.GetValues(typeof(State));
+}
+
+
+<div class="row">
+
+    <div class="col-lg-6">
+
+        <portlet title="Only Checkbox">
+
+            <check-box />
+
+            <separator />
+
+            <check-box text="Checkbox" />
+
+            <separator />
+
+            <check-box name="Checkbox" text="Checkbox" />
+
+            <separator />
+
+            <check-box-group>
+                <check-box />
+                <check-box />
+                <check-box />
+            </check-box-group>
+
+            <separator />
+
+            <checheck-boxckbox-group is-inline="true">
+                <check-box />
+                <check-box />
+                <check-box />
+            </checheck-boxckbox-group>
+
+            <separator />
+
+            <check-box-group>
+                <check-box text="Checkbox" />
+                <check-box text="Checkbox" />
+                <check-box text="Checkbox" />
+            </check-box-group>
+
+            <separator />
+
+            <check-box-group is-inline="true">
+                <check-box text="Checkbox" />
+                <check-box text="Checkbox" />
+                <check-box text="Checkbox" />
+            </check-box-group>
+
+            <separator />
+
+            <check-box-group name="Checkbox Group">
+                <check-box text="Checkbox" />
+                <check-box text="Checkbox" />
+                <check-box text="Checkbox" />
+            </check-box-group>
+
+            <separator />
+
+            <check-box-group name="Checkbox Group" is-inline="true">
+                <check-box text="Checkbox" />
+                <check-box text="Checkbox" />
+                <check-box text="Checkbox" />
+            </check-box-group>
+
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <portlet title="Color Options">
+
+            @foreach (var state in states)
+            {
+                <check-box state="@(State)state" text="@state"/>
+            }
+
+            <separator />
+
+            @foreach (var state in states)
+            {
+                <check-box state="@(State)state" text="@state" mode="Solid" />
+            }
+
+            <separator />
+
+            @foreach (var state in states)
+            {
+                <check-box state="@(State)state" text="@state" mode="Tick" />
+            }
+
+            <separator />
+
+        </portlet>
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-lg-6">
+
+        <portlet title="Only Checkbox">
+
+            <check-box is-multi-select="false"/>
+
+            <separator />
+
+            <check-box text="Checkbox" is-multi-select="false"/>
+
+            <separator />
+
+            <check-box name="Checkbox" text="Checkbox" is-multi-select="false"/>
+
+            <separator />
+
+            <check-box-group is-multi-select="false">
+                <check-box />
+                <check-box />
+                <check-box />
+            </check-box-group>
+
+            <separator />
+
+            <check-box-group is-inline="true" is-multi-select="false">
+                <check-box />
+                <check-box />
+                <check-box />
+            </check-box-group>
+
+            <separator />
+
+            <check-box-group is-multi-select="false">
+                <check-box text="Checkbox" />
+                <check-box text="Checkbox" />
+                <check-box text="Checkbox" />
+            </check-box-group>
+
+            <separator />
+
+            <check-box-group is-inline="true" is-multi-select="false">
+                <check-box text="Checkbox" />
+                <check-box text="Checkbox" />
+                <check-box text="Checkbox" />
+            </check-box-group>
+
+            <separator />
+
+            <check-box-group name="Checkbox Group" is-multi-select="false">
+                <check-box text="Checkbox" />
+                <check-box text="Checkbox" />
+                <check-box text="Checkbox" />
+            </check-box-group>
+
+            <separator />
+
+            <check-box-group name="Checkbox Group" is-inline="true" is-multi-select="false">
+                <check-box text="Checkbox" />
+                <check-box text="Checkbox" />
+                <check-box text="Checkbox" />
+            </check-box-group>
+
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <portlet title="Color Options">
+
+            @foreach (var state in states)
+            {
+                <check-box state="@(State)state" text="@state" is-multi-select="false"/>
+            }
+
+            <separator />
+
+            @foreach (var state in states)
+            {
+                <check-box state="@(State)state" text="@state" mode="Solid" is-multi-select="false"/>
+            }
+
+            <separator />
+
+            @foreach (var state in states)
+            {
+                <check-box state="@(State)state" text="@state" mode="Tick" is-multi-select="false"/>
+            }
+
+            <separator />
+
+        </portlet>
+
+    </div>
+
+</div>

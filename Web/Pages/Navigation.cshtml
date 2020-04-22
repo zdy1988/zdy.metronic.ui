@@ -1,0 +1,179 @@
+﻿@page
+@model Web.NavigationModel
+@{
+    var navs = new List<NavigationItem>
+    {
+        new NavigationItem{ Text="Activity",Icon= Flat2Icon.Drop, IsActived= true},
+        new NavigationItem{ Text="Messages",Badge= "new",BadgeState= State.Danger},
+        new NavigationItem{ Text="FAQ", Icon=Flat2Icon.Calendar8},
+        new NavigationItem{ Text="Settings"},
+        new NavigationItem{ Text="Support", Icon= Flat2Icon.Mail,Badge="5",BadgeState= State.Success}
+    };
+
+    var navs2 = new List<NavigationItem>
+    {
+        new NavigationItem{ Text="Activity",Icon= Flat2Icon.Drop, IsActived= true},
+        new NavigationItem{ Text="Messages",Badge= "new",BadgeState= State.Danger, Navs = new List<NavigationItem>{
+                              new NavigationItem{ Text="Activity",Icon= Flat2Icon.Drop},
+                              new NavigationItem{ Text="Messages",Badge= "new",BadgeState= State.Danger},
+                              new NavigationItem{ Text="FAQ", Icon=Flat2Icon.Calendar8},
+                              new NavigationItem{ Text="Settings"},
+                              new NavigationItem{ Text="Support", Icon= Flat2Icon.Mail,Badge="5",BadgeState= State.Success}}},
+        new NavigationItem{ Text="FAQ", Icon=Flat2Icon.Calendar8},
+        new NavigationItem{ Text="Settings", Navs = new List<NavigationItem>{
+                              new NavigationItem{ Text="Activity",Icon= Flat2Icon.Drop},
+                              new NavigationItem{ Text="Messages",Badge= "new",BadgeState= State.Danger},
+                              new NavigationItem{ Text="FAQ", Icon=Flat2Icon.Calendar8},
+                              new NavigationItem{ Text="Settings"},
+                              new NavigationItem{ Text="Support", Icon= Flat2Icon.Mail,Badge="5",BadgeState= State.Success}}
+                          },
+        new NavigationItem{ Text="Support", Icon= Flat2Icon.Mail,Badge="5",BadgeState= State.Success}
+    };
+
+    var navs3 = new List<NavigationItem>
+    {
+        new NavigationItem{ Text="Activity",Icon= Flat2Icon.Drop, Section="Section 1", IsActived= true, Order= 1},
+        new NavigationItem{ Text="Messages",Badge= "new",BadgeState= State.Danger, Section="Section 1", Order= 3, Navs = new List<NavigationItem>{
+                              new NavigationItem{ Text="Activity",Icon= Flat2Icon.Drop},
+                              new NavigationItem{ Text="Messages",Badge= "new",BadgeState= State.Danger},
+                              new NavigationItem{ Text="FAQ", Icon=Flat2Icon.Calendar8},
+                              new NavigationItem{ Text="Settings"},
+                              new NavigationItem{ Text="Support", Icon= Flat2Icon.Mail,Badge="5",BadgeState= State.Success}}},
+        new NavigationItem{ Text="FAQ", Icon=Flat2Icon.Calendar8, Section="Section 2"},
+        new NavigationItem{ Text="Settings", Section="Section 3", Navs = new List<NavigationItem>{
+                              new NavigationItem{ Text="Activity",Icon= Flat2Icon.Drop},
+                              new NavigationItem{ Text="Messages",Badge= "new",BadgeState= State.Danger},
+                              new NavigationItem{ Text="FAQ", Icon=Flat2Icon.Calendar8},
+                              new NavigationItem{ Text="Settings", Section="Section 4"},
+                              new NavigationItem{ Text="Support", Icon= Flat2Icon.Mail,Badge="5",BadgeState= State.Success}}
+                          },
+        new NavigationItem{ Text="Support", Section="Section 1", Icon= Flat2Icon.Mail,Badge="5",BadgeState= State.Success, Order =2}
+    };
+}
+
+    <div class="row">
+
+        <div class="col-lg-4">
+
+            <portlet title="Default Navigation">
+
+                <section mode="Border" is-fit="true">
+
+                    <navigation navs="navs" />
+
+                </section>
+
+                <section mode="Border" is-fit="true">
+
+                    <navigation navs="navs" bullet="Line" />
+
+                </section>
+
+                <section mode="Border" is-fit="true">
+
+                    <navigation navs="navs" bullet="Dot" />
+
+                </section>
+
+                <section>
+
+                    <dropdown text="Dropdown example" state="Brand" size="Sm">
+
+                        <navigation navs="navs" />
+
+                    </dropdown>
+
+                </section>
+
+                <section mode="Border" is-fit="true">
+
+                    <navigation navs="navs" bullet="Dot" space="Lg" />
+
+                </section>
+
+                <section mode="Border" is-fit="true">
+
+                    <navigation navs="navs" bullet="Dot" space="Md" />
+
+                </section>
+
+                <section mode="Border" is-fit="true">
+
+                    <navigation navs="navs" bullet="Dot" space="Sm" />
+
+                </section>
+
+            </portlet>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <portlet title="Navigation Toggle">
+
+                <section mode="Border" is-fit="true">
+
+                    <navigation navs="navs2" bullet="Dot" is-toggled="true" />
+
+                </section>
+
+                <section mode="Border" is-fit="true">
+
+                    <navigation navs="navs3" bullet="Dot" is-toggled="true" />
+
+                </section>
+
+            </portlet>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <portlet title="Navigation Head & Foot">
+
+                <section mode="Border" is-fit="true">
+
+                    <navigation navs="navs" title="Navigation Title" />
+
+                </section>
+
+                <section mode="Border" is-fit="true">
+
+                    <navigation navs="navs" title="Navigation Title">
+
+                        <navigation-footer>
+
+                            <button state="Danger" size="Sm">Upgrade plan</button>
+
+                            <button size="Sm" is-cleaned="true">Learn more</button>
+
+                        </navigation-footer>
+
+                    </navigation>
+
+                </section>
+
+                <section>
+
+                    <dropdown text="Dropdown example" state="Brand" size="Lg" fit="Fit">
+
+                        <navigation navs="navs" title="Navigation Title">
+
+                            <navigation-footer>
+
+                                <button state="Danger" size="Sm">Upgrade plan</button>
+
+                                <button size="Sm" is-cleaned="true">Learn more</button>
+
+                            </navigation-footer>
+
+                        </navigation>
+
+                    </dropdown>
+
+                </section>
+
+            </portlet>
+
+        </div>
+    </div>

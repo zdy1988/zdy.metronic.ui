@@ -1,0 +1,64 @@
+﻿@page
+@model Web.Pages.ProgressModel
+
+@{
+    var states = Enum.GetValues(typeof(State));
+
+    var sizes = Enum.GetValues(typeof(Size));
+
+    Random random = new Random();
+}
+
+<portlet title="Progresses">
+    <h4 class="block">Basic</h4>
+
+    @foreach (var state in states)
+    {
+        var progressState = (State)state;
+
+        <progress state="@progressState" value="@random.Next(1, 100)"></progress>
+
+        <div class="kt-space-10"></div>
+    }
+
+    <h4 class="block">Striped</h4>
+
+    @foreach (var state in states)
+    {
+        var progressState = (State)state;
+
+        <progress state="@progressState" value="@random.Next(1, 100)" striped="Striped"></progress>
+
+        <div class="kt-space-10"></div>
+    }
+
+    <h4 class="block">Animated</h4>
+
+    @foreach (var state in states)
+    {
+        var progressState = (State)state;
+
+        <progress state="@progressState" value="@random.Next(1, 100)" striped="Animated"></progress>
+
+        <div class="kt-space-10"></div>
+    }
+
+    <h4 class="block">Size</h4>
+
+    @foreach (var size in sizes)
+    {
+
+        <progress state="Danger" size="@(Size)size" value="@random.Next(1, 100)"></progress>
+
+        <div class="kt-space-10"></div>
+    }
+
+    @{
+        var value = random.Next(20, 80);
+    }
+
+    <h4 class="block">Min && Max && Step</h4>
+    <p>min: <label>20</label> max: <label>80</label> step: <label>2</label> value: <label>@value</label></p>
+    <progress state="Success" min="20" max="80" step="2" value="@value" striped="Animated"></progress>
+
+</portlet>

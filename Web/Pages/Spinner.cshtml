@@ -1,0 +1,176 @@
+﻿@page
+@model Web.SpinnerModel
+@{
+     var states = Enum.GetValues(typeof(State));
+     var sizes = Enum.GetValues(typeof(Size));
+}
+
+    <div class="row">
+
+        <div class="col-lg-6">
+
+            <portlet title="Spinner State">
+
+                <section>
+
+                    <div class="row">
+
+                        @foreach (var state in states)
+                        {
+                            <div class="col-sm" spinner spinner-state="@(State)state"></div>
+                        }
+
+                    </div>
+
+                </section>
+
+            </portlet>
+
+            <portlet title="Spinner Size">
+
+                <section>
+
+                    <div class="row">
+
+                        @foreach (var size in sizes)
+                        {
+                            <div class="col-sm" spinner spinner-size="@(Size)size"></div>
+                        }
+                    </div>
+
+                </section>
+
+            </portlet>
+
+            <portlet title="Spinner State">
+
+                <section>
+
+                    <div class="row">
+
+                        @foreach (var state in states)
+                        {
+                            <div class="col-sm">
+
+                                <button text="@state" spinner spinner-state="@(State)state" />
+
+                            </div>
+
+                        }
+
+                    </div>
+
+                </section>
+
+            </portlet>
+
+            <portlet title="Spinner Alige">
+
+                <section>
+
+                    <div class="row">
+
+                        <div class="col-sm">
+
+                            <button text="Left" spinner spinner-state="Success" />
+
+                            <button text="Left" spinner spinner-state="Success" spinner-align="Left" />
+
+                            <button text="Right" spinner spinner-state="Success" spinner-align="Right" />
+
+                            <button text="Center" is-only-icon="true" spinner spinner-state="Success" spinner-align="Center" />
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </portlet>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <portlet title="Spinner State">
+
+                <section>
+
+                    <div class="row">
+
+                        @foreach (var state in states)
+                        {
+                            <div class="col-sm" spinner spinner-state="@(State)state" spinner-shorted></div>
+                        }
+
+                    </div>
+
+                </section>
+
+            </portlet>
+
+            <portlet title="Spinner Size">
+
+                <section>
+
+                    <div class="row">
+
+                        @foreach (var size in sizes)
+                        {
+                            <div class="col-sm" spinner spinner-size="@(Size)size" spinner-shorted></div>
+                        }
+                    </div>
+
+                </section>
+
+            </portlet>
+
+            <portlet title="Spinner State">
+
+                <section>
+
+                    <div class="row">
+
+                        @foreach (var state in states)
+                        {
+                            <div class="col-sm">
+
+                                <button text="@state" spinner spinner-state="@(State)state" spinner-shorted />
+
+                            </div>
+
+                        }
+
+                    </div>
+
+                </section>
+
+            </portlet>
+
+            <portlet title="Spinner Alige">
+
+                <section>
+
+                    <div class="row">
+
+                        <div class="col-sm">
+
+                            <button text="Left" spinner spinner-state="Success" spinner-shorted/>
+
+                            <button text="Left" spinner spinner-state="Success" spinner-align="Left" spinner-shorted/>
+
+                            <button text="Right" spinner spinner-state="Success" spinner-align="Right" spinner-shorted/>
+
+                            <button text="Center" is-only-icon="true" spinner spinner-state="Success" spinner-align="Center" spinner-shorted/>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </portlet>
+
+        </div>
+
+    </div>

@@ -1,0 +1,83 @@
+﻿@page
+@model Web.TooltipModel
+@{
+    var placements = Enum.GetValues(typeof(Placement));
+
+    var states = Enum.GetValues(typeof(State));
+}
+
+<div class="row">
+
+    <div class="col-lg-6">
+
+        <portlet title="Basic Examples">
+
+            <section title="Basic Usage">
+
+                <button state="Danger" text="Click Me!" tooltip="tooltip title" />
+
+                <badge state="Danger" text="Hover Me!" tooltip="tooltip title"  />
+
+                <span tooltip="tooltip title" >dsadsa11</span>
+
+            </section>
+
+            <section title="Directions">
+
+                @foreach (var placement in placements)
+                {
+                    if ((Placement)placement == Placement.None)
+                    {
+                        continue;
+                    }
+
+                    <button state="Danger" text="tooltip on @placement" tooltip-placement="@(Placement)placement" tooltip="tooltip title"  />
+                }
+
+            </section>
+
+
+            <section title="Dismiss on next click">
+
+                <button state="Danger" text="Click Me!" tooltip-trigger="Focus" tooltip="tooltip title"  />
+
+            </section>
+
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <portlet>
+
+            <section title="HTML Content">
+
+                <button state="Danger" text="Click Me!" tooltip-trigger="Focus" tooltip="And here's some amazing <b>HTML</b> content. It's very <code>engaging</code>. Right?" />
+
+            </section>
+
+            <section title="Offset">
+
+                <button state="Success" text="Click Me!" tooltip-offset="(20, 20)" tooltip-trigger="Focus" tooltip="tooltip title" />
+
+                <button state="Warning" text="Click Me!" tooltip-offset="(-20, -20)" tooltip-trigger="Focus" tooltip="tooltip title" />
+
+                <button state="Danger" text="Click Me!" tooltip-offset="(60, 0)" tooltip-trigger="Focus" tooltip="tooltip title" />
+
+            </section>
+
+            <section title="Skin">
+
+                @foreach (var state in states)
+                {
+                    <button state="@(State)state" text="Click Me!" tooltip-state="@(State)state" tooltip-trigger="Focus" tooltip="tooltip title" />
+                }
+
+            </section>
+
+        </portlet>
+
+    </div>
+
+</div>

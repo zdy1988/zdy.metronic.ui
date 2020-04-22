@@ -1,0 +1,74 @@
+﻿@page
+@model Web.PaginationModel
+@{
+    var sizes = Enum.GetValues(typeof(Size));
+    var states = Enum.GetValues(typeof(State));
+}
+
+<div class="row">
+
+    <div class="col-lg-12">
+
+        <portlet title="Pagination Examples">
+
+            <pagination total="200" />
+
+            <div class="kt-space-40"></div>
+
+            <pagination page-index="2" total="200" />
+
+            <div class="kt-space-40"></div>
+
+            <pagination page-index="6" total="200" />
+
+            <div class="kt-space-40"></div>
+
+            <pagination page-index="10" total="200" />
+
+            <div class="kt-space-40"></div>
+
+            <pagination page-index="14" total="200" />
+
+            <div class="kt-space-40"></div>
+
+            <pagination page-index="19" total="200" />
+
+            <div class="kt-space-40"></div>
+
+            <pagination page-index="20" total="200" />
+
+            <div class="kt-space-40"></div>
+
+            <div class="kt-space-40">Desc Format</div>
+
+            <pagination page-index="8" total="200" desc-format="显示 {0} - {1} ，共 {2} 条数据" />
+
+            <div class="kt-space-40"></div>
+
+            <div class="kt-space-40">Circled</div>
+
+            <pagination page-index="8" total="200" desc-format="显示 {0} - {1} ，共 {2} 条数据" is-circled />
+
+            @foreach (var size in sizes)
+            {
+                <div class="kt-space-40"></div>
+
+                <div class="kt-space-40">@size</div>
+
+                <pagination page-index="14" total="200" size="@(Size)size" />
+            }
+
+            @foreach (var state in states)
+            {
+                <div class="kt-space-40"></div>
+
+                <div class="kt-space-40">@state</div>
+
+                <pagination page-index="14" total="200" state="@(State)state" />
+            }
+
+        </portlet>
+
+    </div>
+
+</div>

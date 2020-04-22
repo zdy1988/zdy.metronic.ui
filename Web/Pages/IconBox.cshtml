@@ -1,0 +1,54 @@
+﻿@page
+@model Web.IconBoxModel
+@{
+    var states = Enum.GetValues(typeof(State));
+
+    var waves = Enum.GetValues(typeof(IconBoxWave));
+}
+<div class="row">
+
+    <div class="col-lg-4">
+
+        <icon-box title="Getting Started">
+
+            Windows 10 automatically downloads and installs updates to make sure your device is secure and up to date.
+
+        </icon-box>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <icon-box title="Getting Started" icon="User">
+
+            Windows 10 automatically downloads and installs updates to make sure your device is secure and up to date.
+
+        </icon-box>
+
+    </div>
+
+    @foreach (var state in states)
+    {
+
+        <div class="col-lg-4">
+
+            <icon-box state="@(State)state" title="@state Icon Box" content="Windows 10 automatically downloads and installs updates to make sure your device is secure and up to date." />
+
+        </div>
+
+    }
+
+    @foreach (var wave in waves)
+    {
+
+        <div class="col-lg-4">
+
+
+            <icon-box state="@(State)wave" wave="@(IconBoxWave)wave" title="@wave" content="Windows 10 automatically downloads and installs updates to make sure your device is secure and up to date." />
+
+
+        </div>
+
+    }
+
+</div>

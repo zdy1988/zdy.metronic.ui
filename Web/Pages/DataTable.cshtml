@@ -1,0 +1,259 @@
+﻿@page
+@model Web.DataTableModel
+@{
+
+}
+
+<div class="row">
+
+    <div class="col-lg-12">
+
+        <portlet title="Datatable" fit="Fit">
+
+            <data-table dataset="@Model.DataSet">
+
+                <checkbox-column field-name="RecordID" />
+
+                <template-column index="1" width="200">
+
+                    <div class="kt-user-card-v2">
+                        <div class="kt-user-card-v2__pic">
+                            <img alt="photo" src="media/client-logos/logo1.png">
+                        </div>
+                        <div class="kt-user-card-v2__details">
+                            <a class="kt-user-card-v2__name" href="#">Farrell-Collins</a>
+                            <span class="kt-user-card-v2__email">Angular, React</span>
+                        </div>
+                    </div>
+
+                </template-column>
+
+                <template-column index="5" display-name="Index">
+
+                    <button size="Sm" icon="DollarSign" is-only-icon="true"></button>
+
+                </template-column>
+
+                <template-column display-name="Field Name" field-name="Country">
+
+                    country
+
+                </template-column>
+
+                <template-column display-name="Action" is-center="true">
+
+                       <button size="Sm" icon="Sun" is-only-icon="true"></button>
+
+                </template-column>
+
+            </data-table>
+
+        </portlet>
+
+    </div>
+
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+
+        var iconOffset = 15;
+        var cellOffset = 110;
+        var maxWidthList = {};
+        var options = {
+            icons: {
+                sort: { asc: 'flaticon2-arrow-up', desc: 'flaticon2-arrow-down' },
+                rowDetail: { expand: 'fa fa-caret-down', collapse: 'fa fa-caret-right' },
+            }
+        }
+
+        var getOption = function (path) {
+            return getObject(path, options);
+        }
+
+        var getObject = function (path, object) {
+            return path.split('.').reduce(function (obj, i) {
+                return obj !== null && typeof obj[i] !== 'undefined' ? obj[i] : null;
+            }, object);
+        }
+
+        var extractTable = function () {
+            var columns = [];
+            var headers = $(".kt-datatable .kt-datatable__table").find('tr:first-child th').get().map(function (cell, i) {
+                var field = $(cell).data('field');
+                if (typeof field === 'undefined') {
+                    field = $(cell).text().trim();
+                }
+                var column = { field: field, title: field };
+                for (var ii in options.columns) {
+                    if (options.columns[ii].field === field) {
+                        column = $.extend(true, {}, options.columns[ii], column);
+                    }
+                }
+                columns.push(column);
+                return field;
+            });
+            // auto create columns config
+            options.columns = columns;
+        }
+
+        var getTotalColumns = function (tablePart) {
+            if (typeof tablePart === 'undefined') tablePart = ".kt-datatable .kt-datatable__table .kt-datatable__body";
+            return $(tablePart).find('.kt-datatable__row').first().find('.kt-datatable__cell').length;
+        }
+
+        var adjustCellsWidth = function () {
+            var containerWidth = $(".kt-datatable .kt-datatable__table .kt-datatable__body").innerWidth() - iconOffset;
+
+            var columns = $(".kt-datatable .kt-datatable__table .kt-datatable__body").
+                find('.kt-datatable__row:first-child').
+                find('.kt-datatable__cell').
+                // exclude expand icon
+                not('.kt-datatable__toggle-detail').
+                not(':hidden').length;
+
+            if (columns > 0) {
+                //  remove reserved sort icon width
+                containerWidth = containerWidth - (iconOffset * columns);
+                var minWidth = Math.floor(containerWidth / columns);
+
+                // minimum width
+                if (minWidth <= cellOffset) {
+                    minWidth = cellOffset;
+                }
+
+                $(".kt-datatable .kt-datatable__table").find('.kt-datatable__row').
+                    find('.kt-datatable__cell').
+                    // exclude expand icon
+                    not('.kt-datatable__toggle-detail').
+                    not(':hidden').each(function (tdi, td) {
+
+                        var width = minWidth;
+                        var dataWidth = $(td).data('width');
+
+                        if (typeof dataWidth !== 'undefined') {
+                            if (dataWidth === 'auto') {
+                                var field = $(td).data('field');
+                                if (maxWidthList[field]) {
+                                    width = maxWidthList[field];
+                                }
+                                else {
+                                    var cells = $(".kt-datatable .kt-datatable__table").find('.kt-datatable__cell[data-field="' + field + '"]');
+                                    width = maxWidthList[field] = Math.max.apply(null,
+                                        $(cells).map(function () {
+                                            return $(this).outerWidth();
+                                        }).get());
+                                }
+                            }
+                            else {
+                                width = dataWidth;
+                            }
+                        }
+                        $(td).children().css('width', Math.ceil(width));
+                    });
+            }
+        }
+
+        var autoHide = function () {
+            var hiddenExist = false;
+            // force hide enabled
+            var hidDefault = $(".kt-datatable .kt-datatable__table").find('[data-autohide-enabled]');
+            if (hidDefault.length) {
+                hiddenExist = true;
+                hidDefault.hide();
+            }
+
+            var toggleHiddenColumns = function (e) {
+                e.preventDefault();
+
+                var row = $(this).closest('.kt-datatable__row');
+                var detailRow = $(row).next();
+
+                if (!$(detailRow).hasClass('kt-datatable__row-detail')) {
+                    $(this).find('i').removeClass(getOption('icons.rowDetail.collapse')).addClass(getOption('icons.rowDetail.expand'));
+
+                    var hiddenCells = $(row).find('.kt-datatable__cell:hidden');
+                    var clonedCells = hiddenCells.clone().show();
+
+                    detailRow = $('<tr/>').addClass('kt-datatable__row-detail').insertAfter(row);
+                    var detailRowTd = $('<td/>').addClass('kt-datatable__detail').attr('colspan', getTotalColumns()).appendTo(detailRow);
+
+                    var detailSubTable = $('<table/>');
+                    $(clonedCells).each(function () {
+                        var field = $(this).data('field');
+                        var column = $.grep(options.columns, function (n, i) {
+                            return field === n.field;
+                        })[0];
+                        if (typeof column === 'undefined' || column.visible !== false) {
+                            $(detailSubTable).
+                                append($('<tr class="kt-datatable__row"></tr>').
+                                    append($('<td class="kt-datatable__cell"></td>').append($('<span/>').append(column.title))).
+                                    append(this));
+                        }
+                    });
+                    $(detailRowTd).append(detailSubTable);
+
+                } else {
+                    $(this).find('i').removeClass(getOption('icons.rowDetail.expand')).addClass(getOption('icons.rowDetail.collapse'));
+                    $(detailRow).remove();
+                }
+            };
+
+            setTimeout(function () {
+                $(".kt-datatable .kt-datatable__table").find('.kt-datatable__cell').show();
+                $(".kt-datatable .kt-datatable__table .kt-datatable__body").each(function () {
+                    var recursive = 0;
+                    while ($(this)[0].offsetWidth < $(this)[0].scrollWidth && recursive < options.columns.length) {
+                        $(".kt-datatable .kt-datatable__table").find('.kt-datatable__row').each(function (i) {
+                            var cell = $(this).find('.kt-datatable__cell:not(:hidden):not([data-autohide-disabled])').last();
+                            $(cell).hide();
+                            hiddenExist = true;
+                        });
+                        recursive++;
+                    }
+                });
+
+                if (hiddenExist) {
+                    // toggle show hidden columns
+                    $(".kt-datatable .kt-datatable__table .kt-datatable__body").find('.kt-datatable__row').each(function () {
+                        // if no toggle yet
+                        if ($(this).find('.kt-datatable__toggle-detail').length === 0) {
+                            // add toggle
+                            $(this).prepend($('<td/>').
+                                addClass('kt-datatable__cell kt-datatable__toggle-detail').
+                                append($('<a/>').
+                                    addClass('kt-datatable__toggle-detail').
+                                    attr('href', '').
+                                    on('click', toggleHiddenColumns).
+                                    append('<i class="' + getOption('icons.rowDetail.collapse') + '"></i>')));
+                        }
+
+                        // check if subtable toggle exist
+                        if ($(".kt-datatable .kt-datatable__table .kt-datatable__head").find('.kt-datatable__toggle-detail').length === 0) {
+                            // add empty column to the header and footer
+                            $(".kt-datatable .kt-datatable__table .kt-datatable__head").
+                                find('.kt-datatable__row').
+                                first().
+                                prepend('<th class="kt-datatable__cell kt-datatable__toggle-detail"><span></span></th>');
+                            $(".kt-datatable .kt-datatable__table .kt-datatable__foot").
+                                find('.kt-datatable__row').
+                                first().
+                                prepend('<th class="kt-datatable__cell kt-datatable__toggle-detail"><span></span></th>');
+                        } else {
+                            $(".kt-datatable .kt-datatable__table .kt-datatable__head").find('.kt-datatable__toggle-detail').find('span');
+                        }
+                    });
+                }
+            });
+
+            adjustCellsWidth.call();
+        }
+
+        $(function () {
+            extractTable();
+
+            autoHide();
+        })
+
+    </script>
+}
