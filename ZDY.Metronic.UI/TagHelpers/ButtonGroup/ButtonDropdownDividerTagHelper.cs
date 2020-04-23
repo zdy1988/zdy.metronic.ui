@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("button-dropdown-divider", ParentTag = "button-dropdown", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class ButtonDropdownDividerTagHelper : BaseTagHelper
+    public class ButtonDropdownDividerTagHelper : HelperBase
     {
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {

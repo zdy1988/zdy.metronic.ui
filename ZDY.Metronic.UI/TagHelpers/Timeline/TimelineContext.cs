@@ -9,7 +9,7 @@ using ZDY.Metronic.UI.Untils;
 
 namespace ZDY.Metronic.UI.TagHelpers
 {
-    internal class TimelineContext : ITagHelperContext
+    internal class TimelineContext : IHelperContext
     {
         internal TimelineVersion Version { get; set; }
 

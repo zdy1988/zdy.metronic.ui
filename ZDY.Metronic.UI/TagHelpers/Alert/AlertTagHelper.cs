@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("alert", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class AlertTagHelper : BaseTagHelper<FlatIcon>
+    public class AlertTagHelper : HelperBase<FlatIcon>
     {
         public virtual string Title { get; set; }
 

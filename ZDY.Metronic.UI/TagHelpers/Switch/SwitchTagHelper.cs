@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("switch", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class SwitchTagHelper : BaseTagHelper
+    public class SwitchTagHelper : HelperBase
     {
         public virtual string Name { get; set; }
 

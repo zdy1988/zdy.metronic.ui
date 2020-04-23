@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("separator", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class SeparatorTagHelper : BaseTagHelper
+    public class SeparatorTagHelper : HelperBase
     {
         public virtual Size Space { get; set; } = Size.None;
 

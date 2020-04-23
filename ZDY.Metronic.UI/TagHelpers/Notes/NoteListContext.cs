@@ -9,7 +9,7 @@ using ZDY.Metronic.UI.Untils;
 
 namespace ZDY.Metronic.UI.TagHelpers
 {
-    internal class NoteListContext : ITagHelperContext
+    internal class NoteListContext : IHelperContext
     {
         internal List<IHtmlContent> Notes { get; set; } = new List<IHtmlContent>();
     }

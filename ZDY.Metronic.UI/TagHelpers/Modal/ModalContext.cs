@@ -9,7 +9,7 @@ using ZDY.Metronic.UI.Untils;
 
 namespace ZDY.Metronic.UI.TagHelpers
 {
-    internal class ModalContext : ITagHelperContext
+    internal class ModalContext : IHelperContext
     {
         internal IHtmlContent ModalFooter { get; set; }
     }

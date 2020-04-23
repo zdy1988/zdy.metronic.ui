@@ -9,7 +9,7 @@ using ZDY.Metronic.UI.Untils;
 
 namespace ZDY.Metronic.UI.TagHelpers
 {
-    internal class DataTableContext : ITagHelperContext
+    internal class DataTableContext : IHelperContext
     {
         internal List<DataTableCheckboxColumnTagHelper> CheckboxColumns { get; set; } = new List<DataTableCheckboxColumnTagHelper>();
 

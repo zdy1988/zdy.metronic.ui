@@ -9,7 +9,7 @@ using ZDY.Metronic.UI.Untils;
 
 namespace ZDY.Metronic.UI.TagHelpers
 {
-    internal class CalloutContext : ITagHelperContext
+    internal class CalloutContext : IHelperContext
     {
         internal IHtmlContent CalloutAction { get; set; }
     }

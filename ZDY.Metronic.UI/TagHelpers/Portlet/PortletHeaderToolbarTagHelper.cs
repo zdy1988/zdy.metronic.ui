@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("portlet-header-toolbar", ParentTag = "portlet")]
-    public class PortletHeaderToolbarTagHelper : BaseTagHelper
+    public class PortletHeaderToolbarTagHelper : HelperBase
     {
         public virtual bool IsCleaned { get; set; } = true;
 

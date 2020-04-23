@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("accordion-card", ParentTag = "accordion", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class AccordionCardTagHelper : BaseTagHelper<Flat2Icon>
+    public class AccordionCardTagHelper : HelperBase<Flat2Icon>
     {
         public virtual string Title { get; set; } = "Accordion Title";
 

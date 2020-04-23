@@ -9,7 +9,7 @@ using ZDY.Metronic.UI.Untils;
 
 namespace ZDY.Metronic.UI.TagHelpers
 {
-    public abstract class BaseIconTagHelper<TIcon> : BaseTagHelper
+    public abstract class BaseIconTagHelper<TIcon> : HelperBase
     {
         public virtual TIcon Name { get; set; }
 

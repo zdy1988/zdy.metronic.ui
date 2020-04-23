@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("portlet-header-action-container", ParentTag = "portlet")]
-    public class PortletHeaderActionContainerTagHelper : BaseTagHelper
+    public class PortletHeaderActionContainerTagHelper : HelperBase
     {
         protected virtual string Classes
         {

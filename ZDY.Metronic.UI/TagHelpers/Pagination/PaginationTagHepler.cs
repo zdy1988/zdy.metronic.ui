@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("pagination", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class PaginationTagHepler : BaseTagHelper
+    public class PaginationTagHepler : HelperBase
     {
         public virtual State State { get; set; } = State.None;
 

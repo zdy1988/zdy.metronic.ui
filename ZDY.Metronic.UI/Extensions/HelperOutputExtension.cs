@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace ZDY.Metronic.UI
 {
-    internal static class TagHelperOutputExtension
+    internal static class HelperOutputExtension
     {
         internal static void TransformOutput(this TagHelperOutput output, TagBuilder builder)
         {

@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace ZDY.Metronic.UI
 {
-    internal static class TagHelperContextExtension
+    internal static class HelperContextExtension
     {
         internal static bool TryAddContext<TContext, TTagHelper>(this TagHelperContext context, out TContext tagContext)
-            where TContext : ITagHelperContext, new()
-            where TTagHelper : BaseTagHelper
+            where TContext : IHelperContext, new()
+            where TTagHelper : HelperBase
         {
             var isAdd = false;
 
@@ -35,8 +35,8 @@ namespace ZDY.Metronic.UI
         }
 
         internal static bool TryGetContext<TContext, TTagHelper>(this TagHelperContext context, out TContext tagContext)
-            where TContext : ITagHelperContext
-            where TTagHelper : BaseTagHelper
+            where TContext : IHelperContext
+            where TTagHelper : HelperBase
         {
             var isGet = false;
 

@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("note-list")]
-    public class NoteListTagHelper :BaseTagHelper
+    public class NoteListTagHelper :HelperBase
     {
         public async override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {

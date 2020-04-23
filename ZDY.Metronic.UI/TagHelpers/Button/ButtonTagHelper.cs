@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("button", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class ButtonTagHelper : BaseTagHelper<FontawesomeIcon>
+    public class ButtonTagHelper : HelperBase<FontawesomeIcon>
     {
         public virtual ButtonKind Kind { get; set; } = ButtonKind.Button;
 

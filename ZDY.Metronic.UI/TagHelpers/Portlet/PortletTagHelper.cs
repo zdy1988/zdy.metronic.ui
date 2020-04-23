@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
 	[HtmlTargetElement("portlet")]
-	public class PortletTagHelper : BaseTagHelper<Flat2Icon>
+	public class PortletTagHelper : HelperBase<Flat2Icon>
 	{
 		public virtual string Title { get; set; } = "Portlet";
 

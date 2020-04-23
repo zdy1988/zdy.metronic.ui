@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("tabs")]
-    public class TabsTagHelper : BaseTagHelper
+    public class TabsTagHelper : HelperBase
     {
         public virtual State State { get; set; } = State.None;
 

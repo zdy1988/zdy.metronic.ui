@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("media", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class MediaTagHelper : BaseTagHelper<Flat2Icon>
+    public class MediaTagHelper : HelperBase<Flat2Icon>
     {
         public virtual string Placeholder { get; set; } = "M";
 

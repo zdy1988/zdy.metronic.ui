@@ -9,7 +9,7 @@ using ZDY.Metronic.UI.Untils;
 
 namespace ZDY.Metronic.UI.TagHelpers
 {
-    internal class TabsContext : ITagHelperContext
+    internal class TabsContext : IHelperContext
     {
         internal List<Tuple<TabPaneTagHelper, IHtmlContent>> TabPanes { get; set; } = new List<Tuple<TabPaneTagHelper, IHtmlContent>>();
     }

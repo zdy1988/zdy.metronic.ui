@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("text-box-addon", ParentTag = "text-box")]
-    public class TextBoxAddonTagHelper : BaseTagHelper
+    public class TextBoxAddonTagHelper : HelperBase
     {
         public virtual TextBoxAddonAlign Align { get; set; } = TextBoxAddonAlign.Left;
 

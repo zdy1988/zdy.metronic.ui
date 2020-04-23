@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("info-box", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class InfoBoxTagHelper : BaseTagHelper<Flat2Icon>
+    public class InfoBoxTagHelper : HelperBase<Flat2Icon>
     {
         public virtual string Title { get; set; } = "Info Box";
 

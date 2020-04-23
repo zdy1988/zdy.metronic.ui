@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("modal")]
-    public class ModalTagHelper : BaseTagHelper<Flat2Icon>
+    public class ModalTagHelper : HelperBase<Flat2Icon>
     {
         public virtual string Title { get; set; } = "Modal Title";
 

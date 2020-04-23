@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ZDY.Metronic.UI.TagHelpers
 {
-    public class SelectBoxContext : ITagHelperContext
+    public class SelectBoxContext : IHelperContext
     {
         public List<SelectOption> Options { get; set; } = new List<SelectOption>();
     }

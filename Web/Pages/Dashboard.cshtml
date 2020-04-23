@@ -1,0 +1,87 @@
+﻿@page
+@model Web.DashboardModel
+@{
+
+}
+
+<div class="row">
+
+    <div class="col-lg-6">
+
+        <portlet title="Toastr">
+
+            <section>
+
+                <button state="Success" text="success" onclick="showToast('success')" />
+                <button state="Danger" text="error" onclick="showToast('error')" />
+                <button state="Warning" text="warning" onclick="showToast('warning')" />
+                <button state="Info" text="info" onclick="showToast('info')" />
+
+                <button state="Success" text="hello" onclick="showClickToast('success')" />
+
+            </section>
+
+        </portlet>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <portlet title="Alert">
+
+            <section>
+
+                <button state="Success" text="success" onclick="showAlert('success')" />
+                <button state="Danger" text="error" onclick="showAlert('error')" />
+                <button state="Warning" text="warning" onclick="showAlert('warning')" />
+                <button state="Info" text="info" onclick="showAlert('info')" />
+                <button state="Dark" text="question" onclick="showAlert('question')" />
+
+            </section>
+
+            <section>
+
+                <button state="Brand" text="confirm" onclick="showConfirm()" />
+
+            </section>
+
+        </portlet>
+
+    </div>
+
+</div>
+
+
+@section scripts{
+    <script src="js/pages/dashboard.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function showToast(type) {
+            zdy.toastr[type](type);
+        }
+
+        function showClickToast(type) {
+            zdy.toastr[type](type, "title", function () {
+                alert("hello!");
+            });
+        }
+
+        function showAlert(type) {
+            zdy.alert[type]("You clicked the button!").then(function () {
+                alert("You clicked the alert button!")
+            })
+        }
+
+        function showConfirm() {
+            zdy.confirm("请您确认？").done(function (result) {
+                if (result) {
+                    zdy.alert.success("你点击了确认！");
+                } else {
+                    zdy.alert.info("你点击了取消！");
+                }
+            })
+        }
+
+    </script>
+}

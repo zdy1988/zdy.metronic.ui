@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("button-toolbar")]
-    public class ButtonToolbarTagHelper : BaseTagHelper
+    public class ButtonToolbarTagHelper : HelperBase
     {
         public async override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {

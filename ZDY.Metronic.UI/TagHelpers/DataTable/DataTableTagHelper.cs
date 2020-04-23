@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("data-table", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class DataTableTagHelper : BaseTagHelper
+    public class DataTableTagHelper : HelperBase
     {
         public virtual Object Dataset { get; set; }
 

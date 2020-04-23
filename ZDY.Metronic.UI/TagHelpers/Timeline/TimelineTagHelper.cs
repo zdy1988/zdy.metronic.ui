@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("timeline")]
-    public class TimelineTagHelper : BaseTagHelper
+    public class TimelineTagHelper : HelperBase
     {
         public virtual TimelineVersion Version { get; set; } = TimelineVersion.V2;
 

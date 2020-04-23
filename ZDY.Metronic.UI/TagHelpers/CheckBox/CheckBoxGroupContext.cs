@@ -9,7 +9,7 @@ using ZDY.Metronic.UI.Untils;
 
 namespace ZDY.Metronic.UI.TagHelpers
 {
-    internal class CheckBoxGroupContext : ITagHelperContext
+    internal class CheckBoxGroupContext : IHelperContext
     {
         internal bool IsMultiSelect { get; set; } = true;
 

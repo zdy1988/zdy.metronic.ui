@@ -9,7 +9,7 @@ using ZDY.Metronic.UI.Untils;
 
 namespace ZDY.Metronic.UI.TagHelpers
 {
-    internal class TextBoxContext : ITagHelperContext
+    internal class TextBoxContext : IHelperContext
     {
         internal List<IHtmlContent> PrependAddons { get; set; } = new List<IHtmlContent>();
 

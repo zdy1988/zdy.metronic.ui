@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("callout", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class CalloutTagHelper : BaseTagHelper<Flat2Icon>
+    public class CalloutTagHelper : HelperBase<Flat2Icon>
     {
         public virtual string Title { get; set; } = "Callout Title";
 

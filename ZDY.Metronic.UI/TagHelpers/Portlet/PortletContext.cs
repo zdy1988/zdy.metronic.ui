@@ -9,7 +9,7 @@ using ZDY.Metronic.UI.Untils;
 
 namespace ZDY.Metronic.UI.TagHelpers
 {
-    internal class PortletContext : ITagHelperContext
+    internal class PortletContext : IHelperContext
     {
         internal IHtmlContent HanderToolbar { get; set; }
 

@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers.Navigation
 {
     [HtmlTargetElement("navigation-footer", ParentTag = "navigation")]
-    public class NavigationFooterTagHelper : BaseTagHelper
+    public class NavigationFooterTagHelper : HelperBase
     {
         public async override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {

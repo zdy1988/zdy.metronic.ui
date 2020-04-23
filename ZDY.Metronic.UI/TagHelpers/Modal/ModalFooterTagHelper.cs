@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("modal-footer", ParentTag = "modal")]
-    public class ModalFooterTagHelper : BaseTagHelper
+    public class ModalFooterTagHelper : HelperBase
     {
         public virtual bool IsCloseDestroyed { get; set; } = false;
 

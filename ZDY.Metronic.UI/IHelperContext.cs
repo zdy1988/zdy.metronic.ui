@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ZDY.Metronic.UI
 {
-    internal interface ITagHelperContext
+    internal interface IHelperContext
     {
 
     }

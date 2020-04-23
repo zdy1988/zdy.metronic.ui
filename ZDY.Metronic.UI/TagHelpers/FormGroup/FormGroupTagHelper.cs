@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("form-group")]
-    public class FormGroupTagHelper : BaseTagHelper<LineawesomeIcon>
+    public class FormGroupTagHelper : HelperBase<LineawesomeIcon>
     {
         public virtual string Name { get; set; }
 

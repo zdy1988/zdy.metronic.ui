@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("badge", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class BadgeTagHelper : BaseTagHelper
+    public class BadgeTagHelper : HelperBase
     {
         public virtual string Text { get; set; }
 

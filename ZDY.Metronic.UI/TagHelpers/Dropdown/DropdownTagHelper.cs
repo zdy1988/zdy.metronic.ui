@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("dropdown")]
-    public class DropdownTagHelper : BaseTagHelper<Flat2Icon>
+    public class DropdownTagHelper : HelperBase<Flat2Icon>
     {
         public virtual string Text { get; set; } = "Dropdown";
 

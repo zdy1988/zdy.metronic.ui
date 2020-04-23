@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("select-option", ParentTag = "select-box", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class SelectOptionTagHelper : BaseTagHelper
+    public class SelectOptionTagHelper : HelperBase
     {
         public virtual string Name { get; set; }
 

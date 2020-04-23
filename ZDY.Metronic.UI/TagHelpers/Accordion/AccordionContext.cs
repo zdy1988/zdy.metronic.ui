@@ -9,7 +9,7 @@ using ZDY.Metronic.UI.Untils;
 
 namespace ZDY.Metronic.UI.TagHelpers
 {
-    internal class AccordionContext : ITagHelperContext
+    internal class AccordionContext : IHelperContext
     {
         internal string AccordionId { get; set; }
 

@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("tab-pane", ParentTag = "tabs")]
-    public class TabPaneTagHelper : BaseTagHelper<Flat2Icon>
+    public class TabPaneTagHelper : HelperBase<Flat2Icon>
     {
         public virtual string Name { get; set; }
 

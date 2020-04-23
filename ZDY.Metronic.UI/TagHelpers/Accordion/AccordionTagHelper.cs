@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("accordion")]
-    public class AccordionTagHelper : BaseTagHelper
+    public class AccordionTagHelper : HelperBase
     {
         public virtual AccordionMode Mode { get; set; } = AccordionMode.None;
 

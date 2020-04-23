@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("navigation", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class NavigationTagHelper : BaseTagHelper
+    public class NavigationTagHelper : HelperBase
     {
         public virtual string Title { get; set; }
 

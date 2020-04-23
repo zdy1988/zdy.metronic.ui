@@ -9,7 +9,7 @@ using ZDY.Metronic.UI.Untils;
 
 namespace ZDY.Metronic.UI.TagHelpers
 {
-    internal class BadgePlacedContext : ITagHelperContext
+    internal class BadgePlacedContext : IHelperContext
     {
         internal List<IHtmlContent> Badges { get; set; } = new List<IHtmlContent>();
     }

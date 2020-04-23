@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("portlet-footer-action-container", ParentTag = "portlet")]
-    public class PortletFooterActionContainerTagHelper : BaseTagHelper
+    public class PortletFooterActionContainerTagHelper : HelperBase
     {
         public virtual Size Size { get; set; } = Size.None;
 

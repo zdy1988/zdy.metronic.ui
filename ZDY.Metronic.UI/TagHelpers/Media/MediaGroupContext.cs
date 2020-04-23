@@ -9,7 +9,7 @@ using ZDY.Metronic.UI.Untils;
 
 namespace ZDY.Metronic.UI.TagHelpers
 {
-    internal class MediaGroupContext : ITagHelperContext
+    internal class MediaGroupContext : IHelperContext
     {
         internal List<IHtmlContent> Medias { get; set; } = new List<IHtmlContent>();
     }

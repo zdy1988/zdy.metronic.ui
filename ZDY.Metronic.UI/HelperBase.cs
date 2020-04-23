@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace ZDY.Metronic.UI
 {
-    public class BaseTagHelper : TagHelper
+    public class HelperBase : TagHelper
     {
         protected readonly string Key = Guid.NewGuid().ToString();
 
@@ -37,7 +37,7 @@ namespace ZDY.Metronic.UI
         }
     }
 
-    public class BaseTagHelper<TIcon> : BaseTagHelper
+    public class HelperBase<TIcon> : HelperBase
         where TIcon : struct
     {
         public virtual TIcon Icon { get; set; }

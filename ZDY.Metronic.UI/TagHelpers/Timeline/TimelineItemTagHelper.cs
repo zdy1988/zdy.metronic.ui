@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("timeline-item", ParentTag = "timeline", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class TimelineItemTagHelper : BaseTagHelper
+    public class TimelineItemTagHelper : HelperBase
     {
         public virtual DateTime Time { get; set; } = default;
 

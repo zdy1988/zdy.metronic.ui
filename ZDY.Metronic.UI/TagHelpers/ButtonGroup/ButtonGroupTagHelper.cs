@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("button-group")]
-    public class ButtonGroupTagHelper : BaseTagHelper
+    public class ButtonGroupTagHelper : HelperBase
     {
         public virtual Size Size { get; set; } = Size.None;
 

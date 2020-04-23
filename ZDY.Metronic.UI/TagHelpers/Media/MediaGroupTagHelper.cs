@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("media-group")]
-    public class MediaGroupTagHelper : BaseTagHelper
+    public class MediaGroupTagHelper : HelperBase
     {
         public virtual int Limit { get; set; }
 

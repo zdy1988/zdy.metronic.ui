@@ -9,7 +9,7 @@ using ZDY.Metronic.UI.Untils;
 
 namespace ZDY.Metronic.UI.TagHelpers
 {
-    internal class ButtonDropdownContext : ITagHelperContext
+    internal class ButtonDropdownContext : IHelperContext
     {
         internal List<IHtmlContent> ButtonOrDividers { get; set; } = new List<IHtmlContent>();
     }

@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("icon-box", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class IconBoxTagHelper : BaseTagHelper<SvgIcon>
+    public class IconBoxTagHelper : HelperBase<SvgIcon>
     {
         public virtual string Title { get; set; } = "Icon Box";
 

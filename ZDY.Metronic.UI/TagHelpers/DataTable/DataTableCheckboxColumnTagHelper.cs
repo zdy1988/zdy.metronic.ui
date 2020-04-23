@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("checkbox-column", ParentTag = "data-table", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class DataTableCheckboxColumnTagHelper : BaseTagHelper
+    public class DataTableCheckboxColumnTagHelper : HelperBase
     {
         public virtual string FieldName { get; set; }
 

@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("note-item", ParentTag = "note-list", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class NoteItemTagHelper : BaseTagHelper<Flat2Icon>
+    public class NoteItemTagHelper : HelperBase<Flat2Icon>
     {
 		public virtual string Title { get; set; }
 

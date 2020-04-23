@@ -10,7 +10,7 @@ using ZDY.Metronic.UI.Untils;
 namespace ZDY.Metronic.UI.TagHelpers
 {
     [HtmlTargetElement("section")]
-    public class SectionTagHelper : BaseTagHelper
+    public class SectionTagHelper : HelperBase
     {
         public virtual string Title { get; set; }
 
