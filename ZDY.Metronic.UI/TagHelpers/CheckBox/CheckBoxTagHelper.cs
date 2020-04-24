@@ -12,6 +12,8 @@ namespace ZDY.Metronic.UI.TagHelpers
     [HtmlTargetElement("check-box", TagStructure = TagStructure.NormalOrSelfClosing)]
     public class CheckBoxTagHelper : FormGroupTagHelper
     {
+        public virtual string Field { get; set; }
+
         public virtual string Text { get; set; }
 
         public virtual string Value { get; set; }
@@ -25,6 +27,14 @@ namespace ZDY.Metronic.UI.TagHelpers
         public virtual bool IsChecked { get; set; } = false;
 
         public virtual bool IsMultiSelect { get; set; } = true;
+
+        protected override string HelpTextValue
+        {
+            get
+            {
+                return HelpText ?? String.Format(Settings.GetInstance().CheckBoxHelpTextFormat, Name);
+            }
+        }
 
         protected virtual string CheckInput
         {
@@ -56,7 +66,9 @@ namespace ZDY.Metronic.UI.TagHelpers
             {
                 IsMultiSelect = checkboxGroupContext.IsMultiSelect;
 
-                TagBuilder box = BuildBox(checkboxGroupContext.GroupId);
+                Field = checkboxGroupContext.Field;
+
+                TagBuilder box = BuildBox();
 
                 checkboxGroupContext.Boxes.Add(box);
 
@@ -83,7 +95,7 @@ namespace ZDY.Metronic.UI.TagHelpers
             }
         }
 
-        internal TagBuilder BuildBox(string name = default)
+        internal TagBuilder BuildBox()
         {
             TagBuilder box = new TagBuilder("label"); ;
 
@@ -95,9 +107,9 @@ namespace ZDY.Metronic.UI.TagHelpers
 
             input.Attributes.Add("type", CheckInput);
 
-            if (!IsMultiSelect && !String.IsNullOrWhiteSpace(name))
+            if (!String.IsNullOrWhiteSpace(Field))
             {
-                input.Attributes.Add("name", name);
+                input.Attributes.Add("name", Field);
             }
 
             if (IsChecked)

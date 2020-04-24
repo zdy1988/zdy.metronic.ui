@@ -22,7 +22,7 @@ namespace ZDY.Metronic.UI.TagHelpers
         {
             get
             {
-                return Placeholder ?? $"Please Select {Name}...";
+                return Placeholder ?? String.Format(Settings.GetInstance().SelectBoxPlaceholderFormat, Name);
             }
         }
 
@@ -30,7 +30,7 @@ namespace ZDY.Metronic.UI.TagHelpers
         {
             get
             {
-                return HelpText ?? $"Please Select {Name}...";
+                return Placeholder ?? String.Format(Settings.GetInstance().SelectBoxHelpTextFormat, Name);
             }
         }
 
@@ -57,6 +57,7 @@ namespace ZDY.Metronic.UI.TagHelpers
                     var select = new TagBuilder("select");
 
                     select.Attributes.Add("id", Id);
+                    select.Attributes.Add("name", Field);
                     select.Attributes.Add("class", InputClasses);
 
                     if (IsDisabled)

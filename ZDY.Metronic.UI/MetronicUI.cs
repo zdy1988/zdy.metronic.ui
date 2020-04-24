@@ -4,9 +4,9 @@ using System.Text;
 
 namespace ZDY.Metronic.UI
 {
-    public static class Tools
+    public class MetronicUI : IMetronicUI
     {
-        public static string GetIconContent(object icon)
+        public string GetIconContent(object icon)
         {
             return icon.ToIconContent();
         }

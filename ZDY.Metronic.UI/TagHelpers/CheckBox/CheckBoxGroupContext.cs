@@ -13,7 +13,7 @@ namespace ZDY.Metronic.UI.TagHelpers
     {
         internal bool IsMultiSelect { get; set; } = true;
 
-        internal string GroupId { get; set; }
+        internal string Field { get; set; }
 
         internal List<IHtmlContent> Boxes { get; set; } = new List<IHtmlContent>();
     }

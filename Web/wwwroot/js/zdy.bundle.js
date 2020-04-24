@@ -1062,7 +1062,7 @@ var zdy = function () {
         var status = request.status;
         switch (status) {
             case 401:
-                _.alert.error('您的登录凭证过期,请重新登录').done(function () {
+                _.alert.error('您的登录凭证过期,请重新登录').then(function () {
                     if (typeof window.gotoIndex === "function") {
                         window.gotoIndex();
                     } else {
@@ -1074,7 +1074,7 @@ var zdy = function () {
                 _.toastr.error('未获得权限，请联系管理员');
                 break;
             case 404:
-                _.alert.error('请求未找到', function () {
+                _.alert.error('请求未找到').then(function () {
                     window.location.reload();//刷新当前页面.
                 });
                 break;
@@ -1138,12 +1138,16 @@ var zdy = function () {
         }
     };
 
-    _.showLoading = function (msg) {
-        app.startPageLoading();
+    _.showLoading = function () {
+        if (window.parent.showLoading) {
+            window.parent.showLoading();
+        }
     };
 
-    _.hideLoading = function (callback) {
-        app.stopPageLoading();
+    _.hideLoading = function () {
+        if (window.parent.hideLoading) {
+            window.parent.hideLoading();
+        }
     };
 
     _.alert = {
@@ -1227,19 +1231,15 @@ var zdy = function () {
             }
         },
         error: function (message, title, onclick) {
-            title = title !== undefined && title !== "" ? title : "错误提示";
             _.toastr.show("error", message, title, onclick);
         },
         warning: function (message, title, onclick) {
-            title = title !== undefined && title !== "" ? title : "警告提示";
             _.toastr.show("warning", message, title, onclick);
         },
         success: function (message, title, onclick) {
-            title = title !== undefined && title !== "" ? title : "成功提示";
             _.toastr.show("success", message, title, onclick);
         },
         info: function (message, title, onclick) {
-            title = title !== undefined && title !== "" ? title : "信息提示";
             _.toastr.show("info", message, title, onclick);
         }
     };

@@ -6,11 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using ZDY.Metronic.UI;
 
 namespace Web.Pages
 {
     public class IndexModel : PageModel
     {
+
+        public readonly IMetronicUI metronicUI;
+
+        public IndexModel(IMetronicUI metronicUI)
+        {
+            this.metronicUI = metronicUI;
+        }
+
         public List<MultiLevelPage> Pages { get; set; } = new List<MultiLevelPage>();
 
         Random random = new Random();
@@ -164,7 +173,7 @@ namespace Web.Pages
                     {
                         var icon = (ZDY.Metronic.UI.SvgIcon)random.Next(1, 600);
 
-                        var iconContent = ZDY.Metronic.UI.Tools.GetIconContent(icon);
+                        var iconContent = metronicUI.GetIconContent(icon);
 
                         link.InnerHtml.AppendHtml($"<span class='kt-menu__link-icon'>{iconContent}</span>");
                     }

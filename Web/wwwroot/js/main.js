@@ -82,13 +82,11 @@ window.openWindow = function (page, isRefresh) {
     var $page = $pageContainer.find("#" + pageId);
 
     if ($page.length === 0) {
+        window.showLoading();
         $page = $('<div class="page" id="{pageId}"><iframe src="{pageSrc}" style="width:100%; min-height:1000px; border:none; visibility:hidden;" scrolling="no" frameborder="0"></iframe></div>'.replace("{pageId}", pageId).replace("{pageSrc}", pageSrc));
         $page.find('iframe').on("load", function () {
             this.style.visibility = "";
-
-            setTimeout(function () {
-                KTApp.unblockPage();
-            }, 500);
+            window.hideLoading();
         });
         $pageContainer.append($page);
     }
@@ -99,14 +97,22 @@ window.openWindow = function (page, isRefresh) {
 
     window.setActivePage(pageSrc);
 
+    window.location = "/Index#" + pageSrc;
+};
+
+window.showLoading = function () {
     KTApp.blockPage({
         overlayColor: '#000000',
         type: 'v2',
         state: 'success',
         message: 'Please wait...'
     });
+};
 
-    window.location = "/Index#" + pageSrc;
+window.hideLoading = function () {
+    setTimeout(function () {
+        KTApp.unblockPage();
+    }, 500);
 };
 
 window.onhashchange = function (e) {

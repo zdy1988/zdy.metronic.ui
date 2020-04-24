@@ -12,6 +12,8 @@ namespace ZDY.Metronic.UI.TagHelpers
     [HtmlTargetElement("check-box-group")]
     public class CheckBoxGroupTagHelper : FormGroupTagHelper
     {
+        public virtual string Field { get; set; }
+
         public virtual bool IsInline { get; set; } = false;
 
         public virtual bool IsMultiSelect { get; set; } = true;
@@ -30,7 +32,7 @@ namespace ZDY.Metronic.UI.TagHelpers
             {
                 checkboxGroupContext.IsMultiSelect = IsMultiSelect;
 
-                checkboxGroupContext.GroupId = Id;
+                checkboxGroupContext.Field = String.IsNullOrWhiteSpace(Field) ? Id : Field;
 
                 await output.GetChildContentAsync();
 

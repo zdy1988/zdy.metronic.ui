@@ -16,6 +16,8 @@ namespace ZDY.Metronic.UI.TagHelpers
 
         public virtual string HelpText { get; set; }
 
+        public virtual bool IsHelpTextDestroyed { get; set; } = Settings.GetInstance().IsFormBoxHelpTextDestroyed;
+
         public virtual FormGroupMode GroupMode { get; set; } = FormGroupMode.Vertical;
 
         public virtual bool IsRequired { get; set; } = false;
@@ -32,7 +34,7 @@ namespace ZDY.Metronic.UI.TagHelpers
         {
             get
             {
-                return HelpText ?? $"Please Enter {Name}...";
+                return HelpText ?? $"Please Enter {Name}...";  
             }
         }
 
@@ -78,12 +80,14 @@ namespace ZDY.Metronic.UI.TagHelpers
 
             container.Attributes.Add("class", "form-group");
 
-            container.InnerHtml.AppendHtml(
-                $@"<label class='form-control-label'>
-                       {NameValue}
-                   </label>
-                   {inputGroup.ToHtml()}
-				   <span class='form-text text-muted'>{HelpTextValue}</span>");
+            container.InnerHtml.AppendHtml($"<label class='form-control-label'>{NameValue}</label>");
+
+            container.InnerHtml.AppendHtml(inputGroup.ToHtml());
+
+            if (!IsHelpTextDestroyed)
+            {
+                container.InnerHtml.AppendHtml($"<span class='form-text text-muted'>{HelpTextValue}</span>");
+            }
 
             return container;
         }

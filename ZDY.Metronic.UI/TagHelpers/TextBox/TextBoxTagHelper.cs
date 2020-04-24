@@ -50,7 +50,15 @@ namespace ZDY.Metronic.UI.TagHelpers
         {
             get
             {
-                return Placeholder ?? $"Please Enter {Name}...";
+                return Placeholder ?? String.Format(Settings.GetInstance().TextBoxPlaceholderFormat, Name);
+            }
+        }
+
+        protected override string HelpTextValue
+        {
+            get
+            {
+                return HelpText ?? String.Format(Settings.GetInstance().TextBoxHelpTextFormat, Name);
             }
         }
 
