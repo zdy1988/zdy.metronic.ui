@@ -27,14 +27,14 @@ namespace ZDY.Metronic.UI
 
         public bool IsFormBoxHelpTextDestroyed { get; set; } = false;
 
-        public string TextBoxPlaceholderFormat { get; set; } = $"Please Enter {0}...";
+        public string TextBoxPlaceholderFormat { get; set; } = "Please Enter {0}...";
 
-        public string TextBoxHelpTextFormat { get; set; } = $"Please Enter {0}...";
+        public string TextBoxHelpTextFormat { get; set; } = "Please Enter {0}...";
 
-        public string CheckBoxHelpTextFormat { get; set; } = $"Please Select {0}...";
+        public string CheckBoxHelpTextFormat { get; set; } = "Please Select {0}...";
 
-        public string SelectBoxPlaceholderFormat { get; set; } = $"Please Select {0}...";
+        public string SelectBoxPlaceholderFormat { get; set; } = "Please Select {0}...";
 
-        public string SelectBoxHelpTextFormat { get; set; } = $"Please Select {0}...";
+        public string SelectBoxHelpTextFormat { get; set; } = "Please Select {0}...";
     }
 }

@@ -9,7 +9,7 @@ namespace ZDY.Metronic.UI
         {
             var strings = inputs.Where(t => t.Item2 == true);
 
-            return strings.Count() > 0 ? String.Join(",", strings) : "";
+            return strings.Count() > 0 ? String.Join(",", strings.Select(t => t.Item1)) : "";
         }
     }
 }
